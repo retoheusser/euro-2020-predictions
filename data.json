@@ -35,7 +35,7 @@
     "round": null,
     "year": 2016,
     "probabilitySpan": 0.019039459279356463,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 2,
@@ -130,7 +130,7 @@
     "round": null,
     "year": 2016,
     "probabilitySpan": 0.14784946236559143,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 1,
@@ -149,7 +149,7 @@
     "round": null,
     "year": 2016,
     "probabilitySpan": 0.5770566416928965,
-    "oddIsCorrect": true
+    "oddIsCorrect": false
   },
   {
     "home": 2,
@@ -187,7 +187,7 @@
     "round": null,
     "year": 2016,
     "probabilitySpan": 0.46891102713844035,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 3,
@@ -244,7 +244,7 @@
     "round": null,
     "year": 2016,
     "probabilitySpan": 0.012059962131718949,
-    "oddIsCorrect": true
+    "oddIsCorrect": false
   },
   {
     "home": 1,
@@ -282,7 +282,7 @@
     "round": null,
     "year": 2016,
     "probabilitySpan": 0.018399052448798858,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 0,
@@ -301,7 +301,7 @@
     "round": 3,
     "year": 2016,
     "probabilitySpan": 0.16641095243715337,
-    "oddIsCorrect": true
+    "oddIsCorrect": false
   },
   {
     "home": 0,
@@ -320,7 +320,7 @@
     "round": 3,
     "year": 2016,
     "probabilitySpan": 0.3259149878704778,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 3,
@@ -396,7 +396,7 @@
     "round": 3,
     "year": 2016,
     "probabilitySpan": 0.09799591453652073,
-    "oddIsCorrect": true
+    "oddIsCorrect": false
   },
   {
     "home": 0,
@@ -415,7 +415,7 @@
     "round": 3,
     "year": 2016,
     "probabilitySpan": 0.6732759559864908,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 0,
@@ -434,7 +434,7 @@
     "round": 3,
     "year": 2016,
     "probabilitySpan": 0.27773221803072556,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 0,
@@ -453,7 +453,7 @@
     "round": 3,
     "year": 2016,
     "probabilitySpan": 0.058684728522000684,
-    "oddIsCorrect": true
+    "oddIsCorrect": false
   },
   {
     "home": 0,
@@ -491,7 +491,7 @@
     "round": 3,
     "year": 2016,
     "probabilitySpan": 0.22469385462307612,
-    "oddIsCorrect": true
+    "oddIsCorrect": false
   },
   {
     "home": 0,
@@ -662,7 +662,7 @@
     "round": 2,
     "year": 2016,
     "probabilitySpan": 0.4015730586019719,
-    "oddIsCorrect": true
+    "oddIsCorrect": false
   },
   {
     "home": 2,
@@ -738,7 +738,7 @@
     "round": 2,
     "year": 2016,
     "probabilitySpan": 0.11471567780930064,
-    "oddIsCorrect": true
+    "oddIsCorrect": false
   },
   {
     "home": 1,
@@ -776,7 +776,7 @@
     "round": 1,
     "year": 2016,
     "probabilitySpan": 0.43574846206425155,
-    "oddIsCorrect": true
+    "oddIsCorrect": false
   },
   {
     "home": 0,
@@ -795,7 +795,7 @@
     "round": 1,
     "year": 2016,
     "probabilitySpan": 0.04220630441598533,
-    "oddIsCorrect": true
+    "oddIsCorrect": false
   },
   {
     "home": 1,
@@ -890,7 +890,7 @@
     "round": 1,
     "year": 2016,
     "probabilitySpan": 0.25210084033613445,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 1,
@@ -947,7 +947,7 @@
     "round": 1,
     "year": 2016,
     "probabilitySpan": 0.33251733986128107,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 2,
@@ -1004,7 +1004,7 @@
     "round": null,
     "year": 2012,
     "probabilitySpan": 0.3183091418385535,
-    "oddIsCorrect": true
+    "oddIsCorrect": false
   },
   {
     "home": 0,
@@ -1023,7 +1023,7 @@
     "round": null,
     "year": 2012,
     "probabilitySpan": 0.28187363060342285,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 0,
@@ -1042,7 +1042,7 @@
     "round": null,
     "year": 2012,
     "probabilitySpan": 0.007492507492507461,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 2,
@@ -1099,7 +1099,7 @@
     "round": null,
     "year": 2012,
     "probabilitySpan": 0.43117676184188813,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 1,
@@ -1156,7 +1156,7 @@
     "round": 3,
     "year": 2012,
     "probabilitySpan": 0.5697434722858451,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 2,
@@ -1194,7 +1194,7 @@
     "round": 3,
     "year": 2012,
     "probabilitySpan": 0.5117507996106244,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 2,
@@ -1270,7 +1270,7 @@
     "round": 2,
     "year": 2012,
     "probabilitySpan": 0.12614560807331893,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 0,
@@ -1289,7 +1289,7 @@
     "round": 2,
     "year": 2012,
     "probabilitySpan": 0.22619047619047616,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 4,
@@ -1346,7 +1346,7 @@
     "round": 2,
     "year": 2012,
     "probabilitySpan": 0.06928782979648396,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 2,
@@ -1365,7 +1365,7 @@
     "round": 2,
     "year": 2012,
     "probabilitySpan": 0.3251376495158534,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 1,
@@ -1403,7 +1403,7 @@
     "round": 2,
     "year": 2012,
     "probabilitySpan": 0.14836022904737117,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 2,
@@ -1460,7 +1460,7 @@
     "round": 1,
     "year": 2012,
     "probabilitySpan": 0.25164698201673696,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 1,
@@ -1517,7 +1517,7 @@
     "round": 1,
     "year": 2012,
     "probabilitySpan": 0.39857558234506185,
-    "oddIsCorrect": true
+    "oddIsCorrect": false
   },
   {
     "home": 4,
@@ -1574,7 +1574,7 @@
     "round": null,
     "year": 2008,
     "probabilitySpan": 0.1205616408145262,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 0,
@@ -1593,7 +1593,7 @@
     "round": null,
     "year": 2008,
     "probabilitySpan": 0.2068486935169616,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 3,
@@ -1650,7 +1650,7 @@
     "round": null,
     "year": 2008,
     "probabilitySpan": 0.39682539682539686,
-    "oddIsCorrect": true
+    "oddIsCorrect": false
   },
   {
     "home": 1,
@@ -1669,7 +1669,7 @@
     "round": null,
     "year": 2008,
     "probabilitySpan": 0.3388109741700902,
-    "oddIsCorrect": true
+    "oddIsCorrect": false
   },
   {
     "home": 2,
@@ -1688,7 +1688,7 @@
     "round": null,
     "year": 2008,
     "probabilitySpan": 0.13648168760269258,
-    "oddIsCorrect": true
+    "oddIsCorrect": false
   },
   {
     "home": 1,
@@ -1707,7 +1707,7 @@
     "round": 3,
     "year": 2008,
     "probabilitySpan": 0.41229557011315227,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 2,
@@ -1745,7 +1745,7 @@
     "round": 3,
     "year": 2008,
     "probabilitySpan": 0.054347826086956486,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 2,
@@ -1783,7 +1783,7 @@
     "round": 3,
     "year": 2008,
     "probabilitySpan": 0.6084936625763774,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 0,
@@ -1802,7 +1802,7 @@
     "round": 3,
     "year": 2008,
     "probabilitySpan": 0.03530423036777797,
-    "oddIsCorrect": true
+    "oddIsCorrect": false
   },
   {
     "home": 2,
@@ -1859,7 +1859,7 @@
     "round": 2,
     "year": 2008,
     "probabilitySpan": 0.15266963678505507,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 1,
@@ -1878,7 +1878,7 @@
     "round": 2,
     "year": 2008,
     "probabilitySpan": 0.4577193196119027,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 4,
@@ -1973,7 +1973,7 @@
     "round": 2,
     "year": 2008,
     "probabilitySpan": 0.1503738841574278,
-    "oddIsCorrect": true
+    "oddIsCorrect": false
   },
   {
     "home": 1,
@@ -1992,7 +1992,7 @@
     "round": 2,
     "year": 2008,
     "probabilitySpan": 0.2813698693065668,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 0,
@@ -2011,7 +2011,7 @@
     "round": 1,
     "year": 2008,
     "probabilitySpan": 0.05552846849775178,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 4,
@@ -2106,7 +2106,7 @@
     "round": 1,
     "year": 2008,
     "probabilitySpan": 0.3091977443965313,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 2,
@@ -2144,7 +2144,7 @@
     "round": 1,
     "year": 2008,
     "probabilitySpan": 0.03226456946965117,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 0,
@@ -2163,7 +2163,7 @@
     "round": null,
     "year": 2004,
     "probabilitySpan": 0.3482142857142857,
-    "oddIsCorrect": true
+    "oddIsCorrect": false
   },
   {
     "home": 1,
@@ -2239,7 +2239,7 @@
     "round": null,
     "year": 2004,
     "probabilitySpan": 0.1822617680826636,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 0,
@@ -2258,7 +2258,7 @@
     "round": null,
     "year": 2004,
     "probabilitySpan": 0.5316772893174266,
-    "oddIsCorrect": true
+    "oddIsCorrect": false
   },
   {
     "home": 3,
@@ -2296,7 +2296,7 @@
     "round": 3,
     "year": 2004,
     "probabilitySpan": 0.3228234749124178,
-    "oddIsCorrect": true
+    "oddIsCorrect": false
   },
   {
     "home": 3,
@@ -2372,7 +2372,7 @@
     "round": 3,
     "year": 2004,
     "probabilitySpan": 0.284130284130284,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 1,
@@ -2391,7 +2391,7 @@
     "round": 3,
     "year": 2004,
     "probabilitySpan": 0.6372008001655515,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 2,
@@ -2429,7 +2429,7 @@
     "round": 3,
     "year": 2004,
     "probabilitySpan": 0.01047747343212102,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 2,
@@ -2448,7 +2448,7 @@
     "round": 2,
     "year": 2004,
     "probabilitySpan": 0.09043467947577538,
-    "oddIsCorrect": true
+    "oddIsCorrect": false
   },
   {
     "home": 0,
@@ -2505,7 +2505,7 @@
     "round": 2,
     "year": 2004,
     "probabilitySpan": 0.32815289299590467,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 2,
@@ -2562,7 +2562,7 @@
     "round": 2,
     "year": 2004,
     "probabilitySpan": 0.5232366512854317,
-    "oddIsCorrect": false
+    "oddIsCorrect": true
   },
   {
     "home": 1,
@@ -2733,6 +2733,6 @@
     "round": 1,
     "year": 2004,
     "probabilitySpan": 0.5026152337365153,
-    "oddIsCorrect": true
+    "oddIsCorrect": false
   }
 ]
