@@ -22,7 +22,7 @@
               :value="normalizedValue(item.mean)"
               height="24"
             >
-              <strong>{{ item.mean }}</strong>
+              <strong>{{ item.mean.toFixed(2) }}</strong>
             </v-progress-linear>
           </td>
         </tr>

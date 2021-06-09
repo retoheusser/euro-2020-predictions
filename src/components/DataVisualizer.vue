@@ -7,7 +7,7 @@
           Filters
         </v-card-title>
         <v-card-subtitle>
-          Results taken into account: {{ filteredResults.length }}
+          Match results taken into account: {{ filteredResults.length }}
         </v-card-subtitle>
         <v-card-text>
           <v-input label="Year">
@@ -63,8 +63,19 @@
       </v-card>
       </v-col>
     </v-row>
-    <CountRenderer v-if="aggregation === 'countBy'" :value="countBy" :countBy="aggregationProperty" />
-    <GroupRenderer v-if="aggregation === 'groupBy'" :value="groupBy" :groupBy="aggregationProperty" :meanBy="meanProperty" />
+    <v-tabs v-model="tab">
+      <v-tab>Analyze</v-tab>
+      <v-tab>Benchmark</v-tab>
+    </v-tabs>
+    <v-tabs-items v-model="tab">
+      <v-tab-item>
+        <CountRenderer v-if="aggregation === 'countBy'" :value="countBy" :countBy="aggregationProperty" />
+        <GroupRenderer v-if="aggregation === 'groupBy'" :value="groupBy" :groupBy="aggregationProperty" :meanBy="meanProperty" />
+      </v-tab-item>
+      <v-tab-item>
+        <Benchmark :dataset="filteredResults" />
+      </v-tab-item>
+    </v-tabs-items>
   </v-container>
 </template>
 
@@ -78,26 +89,29 @@
   import historicResults from '../../data.json'
   import CountRenderer from './CountRenderer.vue'
   import GroupRenderer from './GroupRenderer.vue'
+  import Benchmark from './Benchmark.vue'
 
-  type AggregationProperty = 'normalizedResult' | 'oddIsCorrect' | 'total' | 'diff' | 'stage' | 'round' | null
-  type MeanProperty = 'probabilitySpan' | 'total' | 'diff' | null
+  type AggregationProperty = 'normalizedResult' | 'oddIsCorrect' | 'total' | 'diff' | 'stage' | 'round'
+  type MeanProperty = 'probabilitySpan' | 'total' | 'diff'
 
   export default Vue.extend({
     name: 'DataVisualizer',
     components: {
       CountRenderer,
-      GroupRenderer
+      GroupRenderer,
+      Benchmark
     },
     data: () => ({
+      tab: 'analyze',
       historicResults: historicResults as MatchResult[],
       yearFilter: [2016, 2012, 2008, 2004],
       stageFilter: ['group', 'ko'],
       roundFilter: [null, 1, 2, 3],
       excludeDraws: false,
       aggregation: 'countBy',
-      aggregationProperty: null as AggregationProperty | null,
+      aggregationProperty: 'normalizedResult' as AggregationProperty,
       aggregationPropertyCandidates: ['normalizedResult', 'oddIsCorrect', 'total', 'diff', 'stage', 'round'] as AggregationProperty[],
-      meanProperty: null as MeanProperty | null,
+      meanProperty: 'probabilitySpan' as MeanProperty,
       meanPropertyCandidates: ['probabilitySpan', 'total', 'diff'] as MeanProperty[]
     }),
     computed: {

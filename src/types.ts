@@ -23,3 +23,20 @@ export interface MeanResult {
   key: string;
   mean: number;
 }
+
+export type BetPredicateTuple = [number, number]
+export interface MatchResultWithBet extends MatchResult {
+  bet: Bet;
+  points?: number;
+}
+export interface Strategy {
+  name: string;
+  dataset: MatchResultWithBet[];
+  predicate: BetPredicateTuple;
+  betFn: (...args: any) => Bet
+}
+
+export interface Bet {
+  home: number;
+  away: number;
+}
