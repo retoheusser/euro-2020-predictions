@@ -18,6 +18,8 @@ export function calculatePoints(matchResultWithBet: MatchResultWithBet): number 
   return points
 }
 
+// TODO: this assumes the right winner
+// TODO: bet according to odds
 export function getBet(dataset: MatchResult[], matchResult: MatchResult, predicate: BetPredicateTuple, swapThreshold: number): Bet {
   const {home, away} = matchResult
   const bet = {
