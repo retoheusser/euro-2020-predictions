@@ -13,3 +13,13 @@ export interface MatchResult {
   probabilitySpan: number;
   oddIsCorrect: boolean;
 }
+
+export interface CountResult {
+  key: string;
+  count: number;
+}
+
+export interface MeanResult {
+  key: string;
+  mean: number;
+}

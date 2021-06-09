@@ -60,9 +60,9 @@
       </v-card>
       </v-col>
     </v-row>
-    <div>Results taken into account: {{ filteredResults.length }}</div>
-    <div style="white-space: pre;">{{ JSON.stringify(countBy, null, 2) }}</div>
-    <div style="white-space: pre;">{{ JSON.stringify(groupBy, null, 2) }}</div>
+    <h4>Results taken into account: {{ filteredResults.length }}</h4>
+    <CountRenderer v-if="aggregation === 'countBy'" :value="countBy" :countBy="aggregationProperty" />
+    <GroupRenderer v-if="aggregation === 'groupBy'" :value="groupBy" :groupBy="aggregationProperty" :meanBy="meanProperty" />
   </v-container>
 </template>
 
@@ -72,24 +72,19 @@
   import _groupBy from 'lodash/fp/groupBy'
   import _orderBy from 'lodash/fp/orderBy'
   import _meanBy from 'lodash/fp/meanBy'
-  import { MatchResult } from '../types'
+  import { MatchResult, CountResult, MeanResult } from '../types'
   import historicResults from '../../data.json'
+  import CountRenderer from './CountRenderer.vue'
+  import GroupRenderer from './GroupRenderer.vue'
 
   type AggregationProperty = 'normalizedResult' | 'oddIsCorrect' | 'total' | 'diff' | 'stage' | 'round' | null
   type MeanProperty = 'probabilitySpan' | 'total' | 'diff' | null
-  interface CountResult {
-    key: string;
-    count: number;
-  }
-  interface MeanResult {
-    key: string;
-    mean: number;
-  }
 
   export default Vue.extend({
     name: 'DataVisualizer',
     components: {
-
+      CountRenderer,
+      GroupRenderer
     },
     data: () => ({
       historicResults: historicResults as MatchResult[],
@@ -109,7 +104,8 @@
           return this.yearFilter.includes(result.year)
             && this.stageFilter.includes(result.stage)
             && this.roundFilter.includes(result.round)
-            && this.excludeDraws ? result.diff > 0 : true
+        }).filter(result => {
+          return this.excludeDraws ? (result.diff > 0): true
         })
       },
       countBy(): CountResult[] {
@@ -119,7 +115,7 @@
           const result = countByProperty(this.filteredResults)
           const keys = Object.keys(result)
           return orderByCount(keys.map((key) => ({
-            key: `${this.aggregationProperty}: ${key}`,
+            key,
             count: result[key]
           }))) as CountResult[]
         } else {
@@ -134,7 +130,7 @@
           const groups = groupByProperty(this.filteredResults)
           const keys = Object.keys(groups)
           return orderByMean(keys.map((key) => ({
-            key: `${this.aggregationProperty}: ${key}`,
+            key,
             mean: meanByProperty(groups[key])
           }))) as MeanResult[]
         } else {
