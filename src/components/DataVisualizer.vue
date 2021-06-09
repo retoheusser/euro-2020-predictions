@@ -6,6 +6,9 @@
         <v-card-title>
           Filters
         </v-card-title>
+        <v-card-subtitle>
+          Results taken into account: {{ filteredResults.length }}
+        </v-card-subtitle>
         <v-card-text>
           <v-input label="Year">
             <v-checkbox v-model="yearFilter" label="2016" :value="2016" class="mr-8" />
@@ -60,7 +63,6 @@
       </v-card>
       </v-col>
     </v-row>
-    <h4>Results taken into account: {{ filteredResults.length }}</h4>
     <CountRenderer v-if="aggregation === 'countBy'" :value="countBy" :countBy="aggregationProperty" />
     <GroupRenderer v-if="aggregation === 'groupBy'" :value="groupBy" :groupBy="aggregationProperty" :meanBy="meanProperty" />
   </v-container>
