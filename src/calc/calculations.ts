@@ -19,22 +19,28 @@ export function calculatePoints(matchResultWithBet: MatchResultWithBet): number 
 }
 
 export function getBet(dataset: MatchResult[], matchResult: MatchResult, predicate: BetPredicateTuple, swapThreshold: number): Bet {
-  return matchResult.probabilitySpan > swapThreshold ? {
-    home: predicate[0],
-    away: predicate[1]
-  } : {
-    home: predicate[1],
-    away: predicate[0]
+  const {home, away} = matchResult
+  const bet = {
+    home: home >= away ? predicate[0] : predicate[1],
+    away: home >= away ? predicate[1] : predicate[0]
+  }
+  
+  return matchResult.probabilitySpan > swapThreshold ? bet : {
+    home: bet.away,
+    away: bet.home
   }
 }
 
 export function getCustomBet(dataset: MatchResult[], matchResult: MatchResult, predicate: BetPredicateTuple, swapThreshold: number): Bet {
-  predicate = matchResult.round === 2 ? [2,1] : [0,1]
-  return matchResult.probabilitySpan > swapThreshold ? {
-    home: predicate[0],
-    away: predicate[1]
-  } : {
-    home: predicate[1],
-    away: predicate[0]
+  predicate = matchResult.round === 2 ? [2,1] : [1,0]
+  const {home, away} = matchResult
+  const bet = {
+    home: home >= away ? predicate[0] : predicate[1],
+    away: home >= away ? predicate[1] : predicate[0]
+  }
+  
+  return matchResult.probabilitySpan > swapThreshold ? bet : {
+    home: bet.away,
+    away: bet.home
   }
 }

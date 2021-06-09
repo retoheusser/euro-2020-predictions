@@ -24,7 +24,7 @@
         >
           <td>{{ strategy.name }}</td>
           <td>
-            <v-text-field type="number" min="0" step="0.01" v-model="parameters[index].swapResultBelowProbabilitySpan" />
+            <v-text-field type="number" min="0" max="1" step="0.01" v-model="parameters[index].swapResultBelowProbabilitySpan" />
           </td>
           <td>{{ totalPoints(strategy.dataset) }}</td>
           <td>{{ (totalPoints(strategy.dataset) / strategy.dataset.length).toFixed(2) }}</td>
