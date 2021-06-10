@@ -14,13 +14,8 @@ export function calculatePoints(matchResultWithBet: MatchResultWithBet): number 
   if (away === bet.away) {
     points += 2
   }
-  /*
-  if (home === bet.home && away === bet.away) {
-    points += 2
-  }
-  */
   if ((home > away && bet.home > bet.away) || (home < away && bet.home < bet.away) || (home === away && bet.home === bet.away)) {
-    points +=5
+    points += 5
   }
   return points
 }
