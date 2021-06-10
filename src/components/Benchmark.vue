@@ -13,6 +13,9 @@
             Swap result below probability span
           </th>
           <th class="text-left">
+            Diff 2 ratio (custom strategy)
+          </th>
+          <th class="text-left">
             Total points
           </th>
           <th class="text-left">
@@ -33,12 +36,15 @@
             <v-checkbox v-model="parameters[index].betAccordingToOdds" />
           </td>
           <td>
-            <v-text-field type="number" min="0" max="1" step="0.01" v-model="parameters[index].swapResultBelowProbabilitySpan" />
+            <v-text-field type="number" min="0" max="1" step="0.01" :value="parameters[index].swapResultBelowProbabilitySpan" @input="(value) => parameters[index].swapResultBelowProbabilitySpan = Number(value)"/>
+          </td>
+          <td>
+            <v-text-field type="number" min="0" max="1" step="0.01" :value="parameters[index].customStrategyDiff2Ratio" @input="(value) => parameters[index].customStrategyDiff2Ratio = Number(value)" />
           </td>
           <td>{{ totalPoints(strategy.dataset) }}</td>
           <td>{{ (totalPoints(strategy.dataset) / strategy.dataset.length).toFixed(2) }}</td>
           <td>
-            <v-btn text color="primary" @click="applyStrategy(strategy, parameters[index].swapResultBelowProbabilitySpan)">Apply to 2020</v-btn>
+            <v-btn text color="primary" @click="applyStrategy(strategy, parameters[index].swapResultBelowProbabilitySpan, parameters[index].customStrategyDiff2Ratio)">Apply to 2020</v-btn>
           </td>
         </tr>
       </tbody>
@@ -64,23 +70,28 @@
       return {
         parameters: [{
           swapResultBelowProbabilitySpan: 0,
-          betAccordingToOdds: false
+          customStrategyDiff2Ratio: 0,
+          betAccordingToOdds: true
         },
         {
           swapResultBelowProbabilitySpan: 0,
-          betAccordingToOdds: false
+          customStrategyDiff2Ratio: 0,
+          betAccordingToOdds: true
         },
         {
           swapResultBelowProbabilitySpan: 0,
-          betAccordingToOdds: false
+          customStrategyDiff2Ratio: 0,
+          betAccordingToOdds: true
         },
         {
           swapResultBelowProbabilitySpan: 0,
-          betAccordingToOdds: false
+          customStrategyDiff2Ratio: 0,
+          betAccordingToOdds: true
         },
         {
           swapResultBelowProbabilitySpan: 0,
-          betAccordingToOdds: false
+          customStrategyDiff2Ratio: 0,
+          betAccordingToOdds: true
         }]
       }
     },
@@ -119,7 +130,7 @@
           ...strategy,
           dataset: this.dataset.map((matchResult) => ({
             ...matchResult,
-            bet: strategy.betFn(this.dataset, matchResult, strategy.predicate, this.parameters[index].swapResultBelowProbabilitySpan, this.parameters[index].betAccordingToOdds)
+            bet: strategy.betFn(this.dataset, matchResult, strategy.predicate, this.parameters[index].swapResultBelowProbabilitySpan, this.parameters[index].betAccordingToOdds, this.parameters[index].customStrategyDiff2Ratio)
           }))
         }))
       },
@@ -130,11 +141,12 @@
       }
     },
     methods: {
-      applyStrategy({ custom, predicate }: Strategy, swapThreshold: number): void {
+      applyStrategy({ custom, predicate }: Strategy, swapThreshold: number, customStrategyDiff2Ratio: number): void {
         const predictionStrategy: PredictionStrategy = {
           custom,
           predicate,
-          swapThreshold
+          swapThreshold,
+          customStrategyDiff2Ratio
         }
         this.$emit('apply', predictionStrategy)
       }
