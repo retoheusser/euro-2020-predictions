@@ -30,10 +30,13 @@
         >
           <td>{{ match.match }}</td>
           <td>{{ match.odds[0] }}</td>
-          <td>{{ match.odds[1] }}</td>
+          <td class="text--secondary">{{ match.odds[1] }}</td>
           <td>{{ match.odds[2] }}</td>
-          <td>{{ match.probabilitySpan.toFixed(2) }}</td>
-          <td>{{ match.prediction }}</td>
+          <td>
+            {{ match.probabilitySpan.toFixed(2) }}
+            <v-icon v-if="match.probabilitySpan < strategy.swapThreshold">mdi-arrow-down</v-icon>
+          </td>
+          <td class="font-weight-bold">{{ match.prediction }}</td>
         </tr>
       </tbody>
     </template>
@@ -42,15 +45,15 @@
 
 <script lang="ts">
   import Vue, { PropType } from 'vue'
-  import _sum from 'lodash/fp/sum'
-  import { calculatePoints, getBet, getCustomBet, getProbabilitySpan, predict } from '../calc/calculations'
-  import { MatchResult, Strategy, BetPredicateTuple, MatchResultWithBet, PredictionStrategy } from '../types'
+  import { getProbabilitySpan, predict } from '../calc/calculations'
+  import { PredictionStrategy, MatchResult } from '../types'
   import odds from '../../odds.json'
 
   interface Match {
     match: string;
     odds: number[];
     probabilitySpan?: number;
+    round?: number;
   }
 
   interface MatchPrediction extends Match {
@@ -63,6 +66,10 @@
       strategy: {
         type: Object as PropType<PredictionStrategy>,
         required: true
+      },
+      dataset: {
+        type: Array as PropType<MatchResult[]>,
+        required: true
       }
     },
     data() {
@@ -72,15 +79,16 @@
     },
     computed: {
       matchesWithProbabilitySpan(): Match[] {
-        return this.matches.map((match) => ({
+        return this.matches.map((match, index) => ({
           ...match,
+          round: Math.ceil((index + 1) / 12),
           probabilitySpan: getProbabilitySpan(match.odds)
         }))
       },
       predictions(): MatchPrediction[] {
         return this.matchesWithProbabilitySpan.map((match) => ({
           ...match,
-          prediction: predict(match.odds, this.strategy.predicate, this.strategy.swapThreshold, this.strategy.custom)
+          prediction: predict(match.odds, match.round as number, this.strategy.predicate, this.strategy.swapThreshold, this.strategy.custom, this.dataset)
         }))
       }
     }

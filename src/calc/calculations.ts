@@ -20,22 +20,22 @@ export function calculatePoints(matchResultWithBet: MatchResultWithBet): number 
   return points
 }
 
-export function getBet(dataset: MatchResult[], matchResult: MatchResult, predicate: BetPredicateTuple, swapThreshold: number, accordingToOdds: boolean): Bet {
+export function getBet(dataset: MatchResult[], matchResult: Partial<MatchResult>, predicate: BetPredicateTuple, swapThreshold: number, accordingToOdds: boolean): Bet {
   const { home, away } = matchResult
-  const [homeOdd, , awayOdd] = matchResult.odds
-  const condition = accordingToOdds ? (homeOdd <= awayOdd) : (home >= away)
+  const [homeOdd, , awayOdd] = matchResult.odds as number[]
+  const condition = (accordingToOdds || !home || !away) ? (homeOdd <= awayOdd) : (home >= away)
   const bet = {
     home: condition ? predicate[0] : predicate[1],
     away: condition ? predicate[1] : predicate[0]
   }
   
-  return matchResult.probabilitySpan > swapThreshold ? bet : {
+  return matchResult.probabilitySpan as number > swapThreshold ? bet : {
     home: bet.away,
     away: bet.home
   }
 }
 
-export function getCustomBet(dataset: MatchResult[], matchResult: MatchResult, predicate: BetPredicateTuple, swapThreshold: number, accordingToOdds: boolean): Bet {
+export function getCustomBet(dataset: MatchResult[], matchResult: Partial<MatchResult>, predicate: BetPredicateTuple, swapThreshold: number, accordingToOdds: boolean): Bet {
   const orderByProbabilitySpan = _orderBy<MatchResult>(({ probabilitySpan }) => probabilitySpan, 'desc')
   const countByDiff = _countBy('diff')
   
@@ -48,7 +48,7 @@ export function getCustomBet(dataset: MatchResult[], matchResult: MatchResult, p
   const thresholdProbabilitySpan = orderByProbabilitySpan(dataset)[Math.floor(diff2amount)].probabilitySpan
 
   // mix in some 2-0 results according to their share of all results
-  const expectedDiff = matchResult.probabilitySpan > thresholdProbabilitySpan ? 2 : 1
+  const expectedDiff = matchResult.probabilitySpan as number > thresholdProbabilitySpan ? 2 : 1
   predicate = expectedDiff === 2 ? [2,0]  : (matchResult.round === 2 ? [2,1] : [1,0])
   return getBet(dataset, matchResult, predicate, swapThreshold, accordingToOdds)
 }
@@ -58,6 +58,16 @@ export function getProbabilitySpan(odds: number[]): number {
   return sortedProbabilities[2] - sortedProbabilities[0]
 }
 
-export function predict(odds: number[], predicate: BetPredicateTuple, swapThreshold: number, custom: boolean): string {
-  return `${predicate[0]}-${predicate[1]}`
+export function predict(odds: number[], round: number, predicate: BetPredicateTuple, swapThreshold: number, custom: boolean, dataset: MatchResult[]): string {
+  const { home, away } = custom ? getCustomBet(dataset, {
+    odds,
+    probabilitySpan: getProbabilitySpan(odds),
+    round
+  }, predicate, swapThreshold, true) : getBet([], {
+    odds,
+    probabilitySpan: getProbabilitySpan(odds),
+    round
+  }, predicate, swapThreshold, true)
+  
+  return `${home}-${away}`
 }

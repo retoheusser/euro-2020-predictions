@@ -77,7 +77,7 @@
         <Benchmark :dataset="filteredResults" @apply="setStrategy" />
       </v-tab-item>
       <v-tab-item>
-        <Prediction :strategy="strategy" />
+        <Prediction :dataset="filteredResults" :strategy="strategy" />
       </v-tab-item>
     </v-tabs-items>
   </v-container>
