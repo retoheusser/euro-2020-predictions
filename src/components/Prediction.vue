@@ -46,19 +46,8 @@
 <script lang="ts">
   import Vue, { PropType } from 'vue'
   import { getProbabilitySpan, predict } from '../calc/calculations'
-  import { PredictionStrategy, MatchResult } from '../types'
+  import { PredictionStrategy, MatchResult, MatchWithOdds, MatchPrediction } from '../types'
   import odds from '../../odds.json'
-
-  interface Match {
-    match: string;
-    odds: number[];
-    probabilitySpan?: number;
-    round?: number;
-  }
-
-  interface MatchPrediction extends Match {
-    prediction: string;
-  }
 
   export default Vue.extend({
     name: 'Prediction',
@@ -74,21 +63,21 @@
     },
     data() {
       return {
-        matches: odds as Match[]
+        matches: odds as Pick<MatchWithOdds, 'odds' | 'match'>[]
       }
     },
     computed: {
-      matchesWithProbabilitySpan(): Match[] {
+      matchesWithProbabilitySpan(): MatchWithOdds[] {
         return this.matches.map((match, index) => ({
           ...match,
           round: Math.ceil((index + 1) / 12),
           probabilitySpan: getProbabilitySpan(match.odds)
-        }))
+        } as MatchWithOdds))
       },
       predictions(): MatchPrediction[] {
-        return this.matchesWithProbabilitySpan.map((match) => ({
+        return this.matchesWithProbabilitySpan.map((match, index, array) => ({
           ...match,
-          prediction: predict(match.odds, match.round as number, this.strategy.predicate, this.strategy.swapThreshold, this.strategy.customStrategyDiff2Ratio, this.strategy.custom, this.dataset)
+          prediction: predict(match.odds, match.round as number, this.strategy.predicate, this.strategy.swapThreshold, this.strategy.customStrategyDiff2Ratio, this.strategy.custom, this.dataset, array)
         }))
       }
     }

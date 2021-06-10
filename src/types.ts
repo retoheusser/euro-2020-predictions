@@ -48,3 +48,14 @@ export interface Bet {
   home: number;
   away: number;
 }
+
+export interface MatchWithOdds {
+  match: string;
+  odds: number[];
+  probabilitySpan: number;
+  round: number;
+}
+
+export interface MatchPrediction extends MatchWithOdds {
+  prediction: string;
+}
