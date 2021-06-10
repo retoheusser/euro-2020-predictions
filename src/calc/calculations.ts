@@ -20,11 +20,13 @@ export function calculatePoints(matchResultWithBet: MatchResultWithBet): number 
 
 // TODO: this assumes the right winner
 // TODO: bet according to odds
-export function getBet(dataset: MatchResult[], matchResult: MatchResult, predicate: BetPredicateTuple, swapThreshold: number): Bet {
-  const {home, away} = matchResult
+export function getBet(dataset: MatchResult[], matchResult: MatchResult, predicate: BetPredicateTuple, swapThreshold: number, accordingToOdds: boolean): Bet {
+  const { home, away } = matchResult
+  const [homeOdd, , awayOdd] = matchResult.odds
+  const condition = accordingToOdds ? (homeOdd <= awayOdd) : (home >= away)
   const bet = {
-    home: home >= away ? predicate[0] : predicate[1],
-    away: home >= away ? predicate[1] : predicate[0]
+    home: condition ? predicate[0] : predicate[1],
+    away: condition ? predicate[1] : predicate[0]
   }
   
   return matchResult.probabilitySpan > swapThreshold ? bet : {
@@ -33,16 +35,7 @@ export function getBet(dataset: MatchResult[], matchResult: MatchResult, predica
   }
 }
 
-export function getCustomBet(dataset: MatchResult[], matchResult: MatchResult, predicate: BetPredicateTuple, swapThreshold: number): Bet {
+export function getCustomBet(dataset: MatchResult[], matchResult: MatchResult, predicate: BetPredicateTuple, swapThreshold: number, accordingToOdds: boolean): Bet {
   predicate = matchResult.round === 2 ? [2,1] : [1,0]
-  const {home, away} = matchResult
-  const bet = {
-    home: home >= away ? predicate[0] : predicate[1],
-    away: home >= away ? predicate[1] : predicate[0]
-  }
-  
-  return matchResult.probabilitySpan > swapThreshold ? bet : {
-    home: bet.away,
-    away: bet.home
-  }
+  return getBet(dataset, matchResult, predicate, swapThreshold, accordingToOdds)
 }

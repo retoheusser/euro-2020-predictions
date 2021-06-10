@@ -7,6 +7,9 @@
             Strategy
           </th>
           <th class="text-left">
+            Bet according to odds
+          </th>
+          <th class="text-left">
             Swap result below probability span
           </th>
           <th class="text-left">
@@ -23,6 +26,9 @@
           :key="strategy.name"
         >
           <td>{{ strategy.name }}</td>
+          <td>
+            <v-checkbox v-model="parameters[index].betAccordingToOdds" />
+          </td>
           <td>
             <v-text-field type="number" min="0" max="1" step="0.01" v-model="parameters[index].swapResultBelowProbabilitySpan" />
           </td>
@@ -51,16 +57,24 @@
     data() {
       return {
         parameters: [{
-          swapResultBelowProbabilitySpan: 0
+          swapResultBelowProbabilitySpan: 0,
+          betAccordingToOdds: false
         },
         {
-          swapResultBelowProbabilitySpan: 0
+          swapResultBelowProbabilitySpan: 0,
+          betAccordingToOdds: false
         },
         {
-          swapResultBelowProbabilitySpan: 0
+          swapResultBelowProbabilitySpan: 0,
+          betAccordingToOdds: false
         },
         {
-          swapResultBelowProbabilitySpan: 0
+          swapResultBelowProbabilitySpan: 0,
+          betAccordingToOdds: false
+        },
+        {
+          swapResultBelowProbabilitySpan: 0,
+          betAccordingToOdds: false
         }]
       }
     },
@@ -72,24 +86,29 @@
           betFn: getBet
         },
         {
+          name: 'Reto\'s custom',
+          predicate: [1,0] as BetPredicateTuple,
+          betFn: getCustomBet
+        },
+        {
           name: 'All 2-1',
           predicate: [2,1] as BetPredicateTuple,
+          betFn: getBet
+        },
+        {
+          name: 'All 2-0',
+          predicate: [2,0] as BetPredicateTuple,
           betFn: getBet
         },
         {
           name: 'All 1-1',
           predicate: [1,1] as BetPredicateTuple,
           betFn: getBet
-        },
-        {
-          name: 'Custom',
-          predicate: [1,0] as BetPredicateTuple,
-          betFn: getCustomBet
         }].map((strategy, index) => ({
           ...strategy,
           dataset: this.dataset.map((matchResult) => ({
             ...matchResult,
-            bet: strategy.betFn(this.dataset, matchResult, strategy.predicate, this.parameters[index].swapResultBelowProbabilitySpan)
+            bet: strategy.betFn(this.dataset, matchResult, strategy.predicate, this.parameters[index].swapResultBelowProbabilitySpan, this.parameters[index].betAccordingToOdds)
           }))
         }))
       },
