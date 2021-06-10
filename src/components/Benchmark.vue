@@ -18,6 +18,9 @@
           <th class="text-left">
             Points per game
           </th>
+          <th class="text-left">
+            Actions
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -34,6 +37,9 @@
           </td>
           <td>{{ totalPoints(strategy.dataset) }}</td>
           <td>{{ (totalPoints(strategy.dataset) / strategy.dataset.length).toFixed(2) }}</td>
+          <td>
+            <v-btn text color="primary">Apply to 2020</v-btn>
+          </td>
         </tr>
       </tbody>
     </template>

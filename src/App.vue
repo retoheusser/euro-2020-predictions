@@ -5,7 +5,7 @@
       color="primary"
       dark
     >
-      <h1>Euro 2020</h1>
+      <h1>EURO 2020</h1>
     </v-app-bar>
 
     <v-main>

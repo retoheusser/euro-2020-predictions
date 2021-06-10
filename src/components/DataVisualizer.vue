@@ -102,7 +102,7 @@
       Benchmark
     },
     data: () => ({
-      tab: 'analyze',
+      tab: 0,
       historicResults: historicResults as MatchResult[],
       yearFilter: [2016, 2012, 2008, 2004],
       stageFilter: ['group', 'ko'],
