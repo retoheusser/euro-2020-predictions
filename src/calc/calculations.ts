@@ -1,4 +1,9 @@
 import { MatchResultWithBet, MatchResult, BetPredicateTuple, Bet } from '../types'
+import _orderBy from 'lodash/fp/orderBy'
+import _countBy from 'lodash/fp/countBy'
+import _after from 'lodash/after'
+
+const log = _after(100, (...args) => console.log(...args))
 
 export function calculatePoints(matchResultWithBet: MatchResultWithBet): number {
   let points = 0
@@ -18,8 +23,6 @@ export function calculatePoints(matchResultWithBet: MatchResultWithBet): number 
   return points
 }
 
-// TODO: this assumes the right winner
-// TODO: bet according to odds
 export function getBet(dataset: MatchResult[], matchResult: MatchResult, predicate: BetPredicateTuple, swapThreshold: number, accordingToOdds: boolean): Bet {
   const { home, away } = matchResult
   const [homeOdd, , awayOdd] = matchResult.odds
@@ -36,6 +39,19 @@ export function getBet(dataset: MatchResult[], matchResult: MatchResult, predica
 }
 
 export function getCustomBet(dataset: MatchResult[], matchResult: MatchResult, predicate: BetPredicateTuple, swapThreshold: number, accordingToOdds: boolean): Bet {
-  predicate = matchResult.round === 2 ? [2,1] : [1,0]
+  const orderByProbabilitySpan = _orderBy<MatchResult>(({ probabilitySpan }) => probabilitySpan, 'desc')
+  const countByDiff = _countBy('diff')
+  
+  const diffCounts = countByDiff(dataset)
+  const diff1Frequency = diffCounts['1']
+  const diff2Frequency = diffCounts['2']
+  const totalCandidates = diff1Frequency + diff2Frequency
+  const diff2Share = diff2Frequency / totalCandidates
+  const diff2amount = diff2Share * dataset.length
+  const thresholdProbabilitySpan = orderByProbabilitySpan(dataset)[Math.floor(diff2amount)].probabilitySpan
+
+  // mix in some 2-0 results according to their share of all results
+  const expectedDiff = matchResult.probabilitySpan > thresholdProbabilitySpan ? 2 : 1
+  predicate = expectedDiff === 2 ? [2,0]  : (matchResult.round === 2 ? [2,1] : [1,0])
   return getBet(dataset, matchResult, predicate, swapThreshold, accordingToOdds)
 }
