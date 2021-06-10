@@ -1,0 +1,290 @@
+[
+  {
+      "match": "Turkey - Italy",
+      "odds": [
+          8.2,
+          3.92,
+          1.53
+      ]
+  },
+  {
+      "match": "Wales - Switzerland",
+      "odds": [
+          3.97,
+          3.06,
+          2.21
+      ]
+  },
+  {
+      "match": "Denmark - Finland",
+      "odds": [
+          1.46,
+          4.2,
+          9.07
+      ]
+  },
+  {
+      "match": "Belgium - Russia",
+      "odds": [
+          1.74,
+          3.71,
+          5.39
+      ]
+  },
+  {
+      "match": "England - Croatia",
+      "odds": [
+          1.7,
+          3.75,
+          5.65
+      ]
+  },
+  {
+      "match": "Austria - North Macedonia",
+      "odds": [
+          1.68,
+          3.57,
+          6.29
+      ]
+  },
+  {
+      "match": "Netherlands - Ukraine",
+      "odds": [
+          1.67,
+          3.69,
+          6.13
+      ]
+  },
+  {
+      "match": "Scotland - Czech Republic",
+      "odds": [
+          2.98,
+          2.98,
+          2.77
+      ]
+  },
+  {
+      "match": "Poland - Slovakia",
+      "odds": [
+          1.85,
+          3.28,
+          5.31
+      ]
+  },
+  {
+      "match": "Spain - Sweden",
+      "odds": [
+          1.47,
+          4.33,
+          8.07
+      ]
+  },
+  {
+      "match": "Hungary - Portugal",
+      "odds": [
+          7.42,
+          4.26,
+          1.5
+      ]
+  },
+  {
+      "match": "France - Germany",
+      "odds": [
+          2.69,
+          3.17,
+          2.88
+      ]
+  },
+  {
+      "match": "Finland - Russia",
+      "odds": [
+          5.32,
+          3.75,
+          1.71
+      ]
+  },
+  {
+      "match": "Turkey - Wales",
+      "odds": [
+          2.3,
+          3.12,
+          3.52
+      ]
+  },
+  {
+      "match": "Italy - Switzerland",
+      "odds": [
+          1.73,
+          3.6,
+          5.41
+      ]
+  },
+  {
+      "match": "Ukraine - North Macedonia",
+      "odds": [
+          1.62,
+          3.71,
+          6.45
+      ]
+  },
+  {
+      "match": "Denmark - Belgium",
+      "odds": [
+          3.65,
+          3.36,
+          2.13
+      ]
+  },
+  {
+      "match": "Netherlands - Austria",
+      "odds": [
+          1.6,
+          3.99,
+          5.96
+      ]
+  },
+  {
+      "match": "Sweden - Slovakia",
+      "odds": [
+          1.85,
+          3.38,
+          4.92
+      ]
+  },
+  {
+      "match": "Croatia - Czech Republic",
+      "odds": [
+          2.19,
+          3.26,
+          3.59
+      ]
+  },
+  {
+      "match": "England - Scotland",
+      "odds": [
+          1.37,
+          4.97,
+          8.95
+      ]
+  },
+  {
+      "match": "Hungary - France",
+      "odds": [
+          8.4,
+          4.72,
+          1.41
+      ]
+  },
+  {
+      "match": "Portugal - Germany",
+      "odds": [
+          3.24,
+          3.35,
+          2.31
+      ]
+  },
+  {
+      "match": "Spain - Poland",
+      "odds": [
+          1.51,
+          4.34,
+          6.61
+      ]
+  },
+  {
+      "match": "Italy - Wales",
+      "odds": [
+          1.49,
+          4.25,
+          7.3
+      ]
+  },
+  {
+      "match": "Switzerland - Turkey",
+      "odds": [
+          2.4,
+          3.31,
+          3.1
+      ]
+  },
+  {
+      "match": "North Macedonia - Netherlands",
+      "odds": [
+          16.14,
+          6.39,
+          1.22
+      ]
+  },
+  {
+      "match": "Ukraine - Austria",
+      "odds": [
+          2.73,
+          3.24,
+          2.72
+      ]
+  },
+  {
+      "match": "Finland - Belgium",
+      "odds": [
+          13.59,
+          6.46,
+          1.23
+      ]
+  },
+  {
+      "match": "Russia - Denmark",
+      "odds": [
+          4.12,
+          3.48,
+          1.96
+      ]
+  },
+  {
+      "match": "Croatia - Scotland",
+      "odds": [
+          1.94,
+          3.44,
+          4.25
+      ]
+  },
+  {
+      "match": "Czech Republic - England",
+      "odds": [
+          7.05,
+          4.58,
+          1.47
+      ]
+  },
+  {
+      "match": "Slovakia - Spain",
+      "odds": [
+          14.38,
+          6.12,
+          1.24
+      ]
+  },
+  {
+      "match": "Sweden - Poland",
+      "odds": [
+          2.58,
+          3.22,
+          2.91
+      ]
+  },
+  {
+      "match": "Germany - Hungary",
+      "odds": [
+          1.26,
+          6.15,
+          11.77
+      ]
+  },
+  {
+      "match": "Portugal - France",
+      "odds": [
+          3.1,
+          3.28,
+          2.41
+      ]
+  }
+]

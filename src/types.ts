@@ -33,10 +33,17 @@ export interface Strategy {
   name: string;
   dataset: MatchResultWithBet[];
   predicate: BetPredicateTuple;
+  custom: boolean;
   betFn: (...args: any) => Bet
 }
 
-export interface Bet {
+export interface PredictionStrategy {
+  predicate: BetPredicateTuple;
+  custom: boolean;
+  swapThreshold: number;
+}
+
+export interface Bet {
   home: number;
   away: number;
 }

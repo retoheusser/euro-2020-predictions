@@ -66,6 +66,7 @@
     <v-tabs v-model="tab">
       <v-tab>Analyze</v-tab>
       <v-tab>Benchmark</v-tab>
+      <v-tab>Prediction</v-tab>
     </v-tabs>
     <v-tabs-items v-model="tab">
       <v-tab-item>
@@ -73,7 +74,10 @@
         <GroupRenderer v-if="aggregation === 'groupBy'" :value="groupBy" :groupBy="aggregationProperty" :meanBy="meanProperty" />
       </v-tab-item>
       <v-tab-item>
-        <Benchmark :dataset="filteredResults" />
+        <Benchmark :dataset="filteredResults" @apply="setStrategy" />
+      </v-tab-item>
+      <v-tab-item>
+        <Prediction :strategy="strategy" />
       </v-tab-item>
     </v-tabs-items>
   </v-container>
@@ -85,11 +89,12 @@
   import _groupBy from 'lodash/fp/groupBy'
   import _orderBy from 'lodash/fp/orderBy'
   import _meanBy from 'lodash/fp/meanBy'
-  import { MatchResult, CountResult, MeanResult } from '../types'
+  import { MatchResult, CountResult, MeanResult, PredictionStrategy } from '../types'
   import historicResults from '../../data.json'
   import CountRenderer from './CountRenderer.vue'
   import GroupRenderer from './GroupRenderer.vue'
   import Benchmark from './Benchmark.vue'
+  import Prediction from './Prediction.vue'
 
   type AggregationProperty = 'normalizedResult' | 'oddIsCorrect' | 'total' | 'diff' | 'stage' | 'round'
   type MeanProperty = 'probabilitySpan' | 'total' | 'diff'
@@ -99,7 +104,8 @@
     components: {
       CountRenderer,
       GroupRenderer,
-      Benchmark
+      Benchmark,
+      Prediction
     },
     data: () => ({
       tab: 0,
@@ -112,7 +118,12 @@
       aggregationProperty: 'normalizedResult' as AggregationProperty,
       aggregationPropertyCandidates: ['normalizedResult', 'oddIsCorrect', 'total', 'diff', 'stage', 'round'] as AggregationProperty[],
       meanProperty: 'probabilitySpan' as MeanProperty,
-      meanPropertyCandidates: ['probabilitySpan', 'total', 'diff'] as MeanProperty[]
+      meanPropertyCandidates: ['probabilitySpan', 'total', 'diff'] as MeanProperty[],
+      strategy: {
+        predicate: [1, 0],
+        custom: false,
+        swapThreshold: 0
+      } as PredictionStrategy
     }),
     computed: {
       filteredResults(): MatchResult[] {
@@ -152,6 +163,12 @@
         } else {
           return []
         }
+      }
+    },
+    methods: {
+      setStrategy(strategy: PredictionStrategy): void {
+        this.strategy = strategy
+        this.tab = 2
       }
     }
   })

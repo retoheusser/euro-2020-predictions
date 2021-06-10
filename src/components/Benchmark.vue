@@ -38,7 +38,7 @@
           <td>{{ totalPoints(strategy.dataset) }}</td>
           <td>{{ (totalPoints(strategy.dataset) / strategy.dataset.length).toFixed(2) }}</td>
           <td>
-            <v-btn text color="primary">Apply to 2020</v-btn>
+            <v-btn text color="primary" @click="applyStrategy(strategy, parameters[index].swapResultBelowProbabilitySpan)">Apply to 2020</v-btn>
           </td>
         </tr>
       </tbody>
@@ -50,7 +50,7 @@
   import Vue, { PropType } from 'vue'
   import _sum from 'lodash/fp/sum'
   import { calculatePoints, getBet, getCustomBet } from '../calc/calculations'
-  import { MatchResult, Strategy, BetPredicateTuple, MatchResultWithBet } from '../types'
+  import { MatchResult, Strategy, BetPredicateTuple, MatchResultWithBet, PredictionStrategy } from '../types'
 
   export default Vue.extend({
     name: 'Benchmark',
@@ -89,26 +89,31 @@
         return [{
           name: 'All 1-0',
           predicate: [1,0] as BetPredicateTuple,
+          custom: false,
           betFn: getBet
         },
         {
           name: 'Reto\'s custom',
           predicate: [1,0] as BetPredicateTuple,
+          custom: true,
           betFn: getCustomBet
         },
         {
           name: 'All 2-1',
           predicate: [2,1] as BetPredicateTuple,
+          custom: false,
           betFn: getBet
         },
         {
           name: 'All 2-0',
           predicate: [2,0] as BetPredicateTuple,
+          custom: false,
           betFn: getBet
         },
         {
           name: 'All 1-1',
           predicate: [1,1] as BetPredicateTuple,
+          custom: false,
           betFn: getBet
         }].map((strategy, index) => ({
           ...strategy,
@@ -122,6 +127,16 @@
         return (dataset: MatchResultWithBet[]): number => {
           return _sum(dataset.map(calculatePoints))
         }
+      }
+    },
+    methods: {
+      applyStrategy({ custom, predicate }: Strategy, swapThreshold: number): void {
+        const predictionStrategy: PredictionStrategy = {
+          custom,
+          predicate,
+          swapThreshold
+        }
+        this.$emit('apply', predictionStrategy)
       }
     }
   })

@@ -1,9 +1,6 @@
 import { MatchResultWithBet, MatchResult, BetPredicateTuple, Bet } from '../types'
 import _orderBy from 'lodash/fp/orderBy'
 import _countBy from 'lodash/fp/countBy'
-import _after from 'lodash/after'
-
-const log = _after(100, (...args) => console.log(...args))
 
 export function calculatePoints(matchResultWithBet: MatchResultWithBet): number {
   let points = 0
@@ -54,4 +51,13 @@ export function getCustomBet(dataset: MatchResult[], matchResult: MatchResult, p
   const expectedDiff = matchResult.probabilitySpan > thresholdProbabilitySpan ? 2 : 1
   predicate = expectedDiff === 2 ? [2,0]  : (matchResult.round === 2 ? [2,1] : [1,0])
   return getBet(dataset, matchResult, predicate, swapThreshold, accordingToOdds)
+}
+
+export function getProbabilitySpan(odds: number[]): number {
+  const sortedProbabilities = odds.map(odd => 1 / odd).sort()
+  return sortedProbabilities[2] - sortedProbabilities[0]
+}
+
+export function predict(odds: number[], predicate: BetPredicateTuple, swapThreshold: number, custom: boolean): string {
+  return `${predicate[0]}-${predicate[1]}`
 }
