@@ -7,9 +7,6 @@
             Strategy
           </th>
           <th class="text-left">
-            Bet according to odds
-          </th>
-          <th class="text-left">
             Swap result below probability span
           </th>
           <th class="text-left">
@@ -32,9 +29,6 @@
           :key="strategy.name"
         >
           <td>{{ strategy.name }}</td>
-          <td>
-            <v-checkbox v-model="parameters[index].betAccordingToOdds" />
-          </td>
           <td>
             <v-text-field type="number" min="0" max="1" step="0.01" :value="parameters[index].swapResultBelowProbabilitySpan" @input="(value) => parameters[index].swapResultBelowProbabilitySpan = Number(value)"/>
           </td>
@@ -79,23 +73,19 @@
       return {
         parameters: [{
           swapResultBelowProbabilitySpan: 0,
-          customStrategyDiff2Ratio: 0,
-          betAccordingToOdds: true
+          customStrategyDiff2Ratio: 0
         },
         {
           swapResultBelowProbabilitySpan: 0,
-          customStrategyDiff2Ratio: 0,
-          betAccordingToOdds: true
+          customStrategyDiff2Ratio: 0
         },
         {
           swapResultBelowProbabilitySpan: 0,
-          customStrategyDiff2Ratio: 0,
-          betAccordingToOdds: true
+          customStrategyDiff2Ratio: 0
         },
         {
           swapResultBelowProbabilitySpan: 0,
-          customStrategyDiff2Ratio: 0,
-          betAccordingToOdds: true
+          customStrategyDiff2Ratio: 0
         }]
       }
     },
@@ -127,7 +117,7 @@
           ...strategy,
           dataset: this.dataset.map((matchResult) => ({
             ...matchResult,
-            bet: strategy.betFn(this.dataset, matchResult, strategy.predicate, this.parameters[index].swapResultBelowProbabilitySpan, this.parameters[index].betAccordingToOdds, this.parameters[index].customStrategyDiff2Ratio)
+            bet: strategy.betFn(this.dataset, matchResult, strategy.predicate, this.parameters[index].swapResultBelowProbabilitySpan, this.parameters[index].customStrategyDiff2Ratio)
           }))
         }))
       },
