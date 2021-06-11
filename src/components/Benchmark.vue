@@ -42,7 +42,7 @@
             <v-text-field type="number" min="0" max="1" step="0.01" :value="parameters[index].customStrategyDiff2Ratio" @input="(value) => parameters[index].customStrategyDiff2Ratio = Number(value)" />
           </td>
           <td>{{ totalPoints(strategy.dataset) }}</td>
-          <td>
+          <td style="width: 100%">
             <v-progress-linear
               :value="(pointsPerGame(strategy.dataset) - minPointsPerGameInTable) / (maxPointsPerGameInTable - minPointsPerGameInTable) * 100"
               height="16"
