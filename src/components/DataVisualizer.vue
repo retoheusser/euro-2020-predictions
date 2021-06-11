@@ -1,15 +1,10 @@
 <template>
   <v-container>
-    <v-row>
-      <v-col>
-      <v-card class="ma-4">
-        <v-card-title>
-          Filters
-        </v-card-title>
-        <v-card-subtitle>
-          Match results taken into account: {{ filteredResults.length }}
-        </v-card-subtitle>
-        <v-card-text>
+    <v-expansion-panels v-model="expansionPanels" multiple class="mb-8">
+      <v-expansion-panel>
+        <v-expansion-panel-header>Filters</v-expansion-panel-header>
+        <v-expansion-panel-content>
+          <div class="text-caption">Match results taken into account: {{ filteredResults.length }}</div>
           <v-input label="Year">
             <v-checkbox v-model="yearFilter" label="2016" :value="2016" class="mr-8" />
             <v-checkbox v-model="yearFilter" label="2012" :value="2012" class="mr-8" />
@@ -27,17 +22,12 @@
             <v-checkbox v-model="roundFilter" label="KO" :value="null" class="mr-8" />
           </v-input>
           <v-checkbox v-model="excludeDraws" label="Exclude Draws" />
+        </v-expansion-panel-content>
+      </v-expansion-panel>
 
-        </v-card-text>
-      </v-card>
-      </v-col>
-
-      <v-col>
-      <v-card class="ma-4">
-        <v-card-title>
-          Aggregation
-        </v-card-title>
-        <v-card-text>
+      <v-expansion-panel>
+        <v-expansion-panel-header>Aggregation</v-expansion-panel-header>
+        <v-expansion-panel-content>
           <v-radio-group v-model="aggregation">
             <v-radio
               label="countBy"
@@ -59,10 +49,10 @@
             :items="meanPropertyCandidates"
             label="Mean by"
           />
-        </v-card-text>
-      </v-card>
-      </v-col>
-    </v-row>
+        </v-expansion-panel-content>
+      </v-expansion-panel>
+    </v-expansion-panels>
+
     <v-tabs v-model="tab">
       <v-tab>Analyze</v-tab>
       <v-tab>Benchmark</v-tab>
@@ -108,6 +98,7 @@
       Prediction
     },
     data: () => ({
+      expansionPanels: [0,1],
       tab: 0,
       historicResults: historicResults as MatchResult[],
       yearFilter: [2016, 2012, 2008, 2004],
