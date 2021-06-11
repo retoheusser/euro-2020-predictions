@@ -42,7 +42,16 @@
             <v-text-field type="number" min="0" max="1" step="0.01" :value="parameters[index].customStrategyDiff2Ratio" @input="(value) => parameters[index].customStrategyDiff2Ratio = Number(value)" />
           </td>
           <td>{{ totalPoints(strategy.dataset) }}</td>
-          <td>{{ (totalPoints(strategy.dataset) / strategy.dataset.length).toFixed(2) }}</td>
+          <td>
+            <v-progress-linear
+              :value="(pointsPerGame(strategy.dataset) - minPointsPerGameInTable) / (maxPointsPerGameInTable - minPointsPerGameInTable) * 100"
+              height="16"
+            >
+              <span>
+                {{ pointsPerGame(strategy.dataset).toFixed(2) }}
+              </span>
+            </v-progress-linear>
+          </td>
           <td>
             <v-btn text color="primary" @click="applyStrategy(strategy, parameters[index].swapResultBelowProbabilitySpan, parameters[index].customStrategyDiff2Ratio)">Apply to 2020</v-btn>
           </td>
@@ -87,27 +96,21 @@
           swapResultBelowProbabilitySpan: 0,
           customStrategyDiff2Ratio: 0,
           betAccordingToOdds: true
-        },
-        {
-          swapResultBelowProbabilitySpan: 0,
-          customStrategyDiff2Ratio: 0,
-          betAccordingToOdds: true
         }]
       }
     },
     computed: {
       strategies(): Strategy[] {
         return [{
-          name: 'All 1-0',
-          predicate: [1,0] as BetPredicateTuple,
-          custom: false,
-          betFn: getBet
-        },
-        {
           name: 'Reto\'s custom',
           predicate: [1,0] as BetPredicateTuple,
           custom: true,
           betFn: getCustomBet
+        },{
+          name: 'All 1-0',
+          predicate: [1,0] as BetPredicateTuple,
+          custom: false,
+          betFn: getBet
         },
         {
           name: 'All 2-1',
@@ -118,12 +121,6 @@
         {
           name: 'All 2-0',
           predicate: [2,0] as BetPredicateTuple,
-          custom: false,
-          betFn: getBet
-        },
-        {
-          name: 'All 1-1',
-          predicate: [1,1] as BetPredicateTuple,
           custom: false,
           betFn: getBet
         }].map((strategy, index) => ({
@@ -138,6 +135,19 @@
         return (dataset: MatchResultWithBet[]): number => {
           return _sum(dataset.map(calculatePoints))
         }
+      },
+      pointsPerGame() {
+        return (dataset: MatchResultWithBet[]): number => {
+          return this.totalPoints(dataset) / dataset.length
+        }
+      },
+      maxPointsPerGameInTable(): number {
+        const strategies = this.strategies
+        return Math.max(...strategies.map(({dataset}) => this.pointsPerGame(dataset)))
+      },
+      minPointsPerGameInTable(): number {
+        const strategies = this.strategies
+        return Math.min(...strategies.map(({dataset}) => this.pointsPerGame(dataset)))
       }
     },
     methods: {
