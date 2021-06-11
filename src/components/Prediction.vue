@@ -33,10 +33,19 @@
           <td class="text--secondary">{{ match.odds[1] }}</td>
           <td>{{ match.odds[2] }}</td>
           <td>
-            {{ match.probabilitySpan.toFixed(2) }}
-            <v-icon v-if="match.probabilitySpan < strategy.swapThreshold">mdi-arrow-down</v-icon>
+            <v-progress-linear
+              :value="match.probabilitySpan * 100"
+              height="16"
+            >
+              <span>
+                {{ match.probabilitySpan.toFixed(2) }}
+                <v-icon v-if="match.probabilitySpan < strategy.swapThreshold">mdi-arrow-down</v-icon>
+              </span>
+            </v-progress-linear>
           </td>
-          <td class="font-weight-bold">{{ match.prediction }}</td>
+          <td class="font-weight-bold">
+            <span class="primary lighten-1 rounded pa-2">{{ match.prediction }}</span>
+          </td>
         </tr>
       </tbody>
     </template>
