@@ -68,7 +68,7 @@
       <v-tab>Benchmark</v-tab>
       <v-tab>Prediction</v-tab>
     </v-tabs>
-    <v-tabs-items v-model="tab">
+    <v-tabs-items v-model="tab" :touchless="true">
       <v-tab-item>
         <CountRenderer v-if="aggregation === 'countBy'" :value="countBy" :countBy="aggregationProperty" />
         <GroupRenderer v-if="aggregation === 'groupBy'" :value="groupBy" :groupBy="aggregationProperty" :meanBy="meanProperty" />
