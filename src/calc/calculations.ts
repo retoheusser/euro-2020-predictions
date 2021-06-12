@@ -6,16 +6,16 @@ export function calculatePoints(matchResultWithBet: MatchResultWithBet): number 
   let points = 0
   const { bet, home, away } = matchResultWithBet
   if (home - away === bet.home - bet.away) {
-    points += 1
+    points += 3 // correct difference
   }
   if (home === bet.home) {
-    points += 2
+    points += 1 // correct home goals
   }
   if (away === bet.away) {
-    points += 2
+    points += 1 // correct away goals
   }
   if ((home > away && bet.home > bet.away) || (home < away && bet.home < bet.away) || (home === away && bet.home === bet.away)) {
-    points += 5
+    points += 5 // correct winner
   }
   return points
 }
