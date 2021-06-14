@@ -57,7 +57,7 @@
     <v-tabs v-model="tab">
       <v-tab>Analyze</v-tab>
       <v-tab>Benchmark</v-tab>
-      <v-tab>Prediction</v-tab>
+      <v-tab>Predict</v-tab>
     </v-tabs>
     <v-tabs-items v-model="tab" :touchless="true">
       <v-tab-item>
@@ -87,7 +87,7 @@
   import Benchmark from './Benchmark.vue'
   import Prediction from './Prediction.vue'
 
-  type AggregationProperty = 'normalizedResult' | 'oddIsCorrect' | 'total' | 'diff' | 'stage' | 'round'
+  type AggregationProperty = 'normalizedResult' | 'oddIsCorrect' | 'total' | 'diff' | 'stage' | 'round' | 'probabilitySpan'
   type MeanProperty = 'probabilitySpan' | 'total' | 'diff'
 
   export default Vue.extend({
@@ -109,7 +109,7 @@
       excludeUncommonResults: false,
       aggregation: 'countBy',
       aggregationProperty: 'normalizedResult' as AggregationProperty,
-      aggregationPropertyCandidates: ['normalizedResult', 'oddIsCorrect', 'total', 'diff', 'stage', 'round'] as AggregationProperty[],
+      aggregationPropertyCandidates: ['normalizedResult', 'oddIsCorrect', 'total', 'diff', 'stage', 'round', 'probabilitySpan'] as AggregationProperty[],
       meanProperty: 'probabilitySpan' as MeanProperty,
       meanPropertyCandidates: ['probabilitySpan', 'total', 'diff'] as MeanProperty[],
       strategy: {
@@ -132,11 +132,14 @@
       },
       countBy(): CountResult[] {
         if (this.aggregationProperty) {
-          const countByProperty = _countBy(this.aggregationProperty)
+          const aggregationByProbabilitySpan = this.aggregationProperty === 'probabilitySpan'
+          const countByProperty = _countBy(aggregationByProbabilitySpan ? (({ probabilitySpan }) => Math.ceil(probabilitySpan * 10) / 10) : this.aggregationProperty)
           const orderByCount = _orderBy('count', 'desc')
+          const orderByKey = _orderBy('key', 'asc')
+          const orderBy = aggregationByProbabilitySpan ? orderByKey : orderByCount
           const result = countByProperty(this.filteredResults)
           const keys = Object.keys(result)
-          return orderByCount(keys.map((key) => ({
+          return orderBy(keys.map((key) => ({
             key,
             count: result[key]
           }))) as CountResult[]
@@ -146,14 +149,17 @@
       },
       groupBy(): MeanResult[] {
         if (this.aggregationProperty && this.meanProperty) {
-          const groupByProperty = _groupBy(this.aggregationProperty)
+          const aggregationByProbabilitySpan = this.aggregationProperty === 'probabilitySpan'
+          const groupByProperty = _groupBy(aggregationByProbabilitySpan ? (({ probabilitySpan }) => Math.ceil(probabilitySpan * 10) / 10) : this.aggregationProperty)
           const meanByProperty = _meanBy(this.meanProperty)
           const orderByMean = _orderBy('mean', 'desc')
+          const orderByKey = _orderBy('key', 'asc') 
+          const orderBy = aggregationByProbabilitySpan ? orderByKey : orderByMean
           const groups = groupByProperty(this.filteredResults)
           const keys = Object.keys(groups)
-          return orderByMean(keys.map((key) => ({
+          return orderBy(keys.map((key) => ({
             key,
-            mean: meanByProperty(groups[key])
+            mean: meanByProperty(groups[key] as any)
           }))) as MeanResult[]
         } else {
           return []
