@@ -22,6 +22,7 @@
             <v-checkbox v-model="roundFilter" label="KO" :value="null" class="mr-8" />
           </v-input>
           <v-checkbox v-model="excludeDraws" label="Exclude Draws" />
+          <v-checkbox v-model="excludeUncommonResults" label="Exclude other results than 1-0, 2-0 and 2-1" />
         </v-expansion-panel-content>
       </v-expansion-panel>
 
@@ -105,6 +106,7 @@
       stageFilter: ['group', 'ko'],
       roundFilter: [null, 1, 2, 3],
       excludeDraws: false,
+      excludeUncommonResults: false,
       aggregation: 'countBy',
       aggregationProperty: 'normalizedResult' as AggregationProperty,
       aggregationPropertyCandidates: ['normalizedResult', 'oddIsCorrect', 'total', 'diff', 'stage', 'round'] as AggregationProperty[],
@@ -124,6 +126,8 @@
             && this.roundFilter.includes(result.round)
         }).filter(result => {
           return this.excludeDraws ? (result.diff > 0): true
+        }).filter(result => {
+          return this.excludeUncommonResults ? (['1-0', '2-0', '2-1'].includes(result.normalizedResult)): true
         })
       },
       countBy(): CountResult[] {
