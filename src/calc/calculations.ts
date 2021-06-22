@@ -61,8 +61,8 @@ export function getCustomBet(dataset: MatchResult[], matchResult: Partial<MatchR
 }
 
 export function getProbabilitySpan(odds: number[]): number {
-  const sortedProbabilities = odds.map(odd => 1 / odd).sort()
-  return sortedProbabilities[2] - sortedProbabilities[0]
+  const sortedProbabilities = [odds[0], odds[2]].map(odd => 1 / odd).sort()
+  return sortedProbabilities[1] - sortedProbabilities[0]
 }
 
 export function predict(odds: number[], round: number, predicate: BetPredicateTuple, swapThreshold: number, customStrategyDiff2Ratio: number, custom: boolean, dataset: MatchResult[], localDataset: MatchWithOdds[]): string {
