@@ -22,6 +22,11 @@
             <v-checkbox v-model="roundFilter" label="Group Round 3" :value="3" class="mr-8" />
             <v-checkbox v-model="roundFilter" label="KO" :value="null" class="mr-8" />
           </v-input>
+          <v-range-slider v-model="probabilitySpanFilter" label="Probability span" :min="0" :max="1" :step="0.01">
+            <template #append>
+              <div class="text-no-wrap">{{ probabilitySpanFilter[0] }} - {{ probabilitySpanFilter[1] }}</div>
+            </template>
+          </v-range-slider>
           <v-checkbox v-model="excludeDraws" label="Exclude Draws" />
           <v-checkbox v-model="excludeUncommonResults" label="Exclude other results than 1-0, 2-0 and 2-1" />
         </v-expansion-panel-content>
@@ -117,7 +122,8 @@
         predicate: [1, 0],
         custom: false,
         swapThreshold: 0
-      } as PredictionStrategy
+      } as PredictionStrategy,
+      probabilitySpanFilter: [0,1]
     }),
     computed: {
       filteredResults(): MatchResult[] {
@@ -129,6 +135,8 @@
           return this.excludeDraws ? (result.diff > 0): true
         }).filter(result => {
           return this.excludeUncommonResults ? (['1-0', '2-0', '2-1'].includes(result.normalizedResult)): true
+        }).filter(result => {
+          return result.probabilitySpan > this.probabilitySpanFilter[0] && result.probabilitySpan < this.probabilitySpanFilter[1]
         })
       },
       countBy(): CountResult[] {
