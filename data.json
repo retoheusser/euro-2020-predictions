@@ -258,7 +258,7 @@
         "diff": 4,
         "normalizedResult": "4-0",
         "swapped": true,
-        "stage": "group",
+        "stage": "ko",
         "round": null,
         "year": 2020,
         "odds": [
@@ -906,7 +906,7 @@
       "diff": 3,
       "normalizedResult": "3-0",
       "swapped": true,
-      "stage": "ko",
+      "stage": "group",
       "round": 1,
       "year": 2020,
       "odds": [
