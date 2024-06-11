@@ -1,8 +1,9 @@
-// execute on https://www.oddsportal.com/soccer/europe/euro-2020/
+// execute on https://www.oddsportal.com/football/europe/euro/
 
-$("tr[xeid]").map(function () {
-  const element = $(this)
-  const match = element.find("td.name a").text().trim()
-  const odds = element.find("td.odds-nowrp a").map(function () { return Number($(this).text()) }).toArray()
-  return {match, odds}
-}).toArray()
+const all = []
+document.querySelectorAll(".group.flex").forEach(item => {
+ const data = item.innerText.split('\n').filter(v => v)
+ const match = [data[1], data[2], data[3]].join(" ")
+ const odds = [data[4], data[5], data[6]].map(Number)
+ all.push({ match, odds })
+})
