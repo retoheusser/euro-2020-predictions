@@ -5,7 +5,7 @@ export interface MatchResult {
   diff: number;
   normalizedResult: string;
   swapped: boolean;
-  score: string;
+  score?: string;
   odds: number[];
   stage: string;
   round: number | null;

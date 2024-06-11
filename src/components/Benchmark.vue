@@ -47,7 +47,7 @@
             </v-progress-linear>
           </td>
           <td>
-            <v-btn text color="primary" @click="applyStrategy(strategy, parameters[index].swapResultBelowProbabilitySpan, parameters[index].customStrategyDiff2Ratio)">Apply to 2020</v-btn>
+            <v-btn text color="primary" @click="applyStrategy(strategy, parameters[index].swapResultBelowProbabilitySpan, parameters[index].customStrategyDiff2Ratio)">Apply to 2024</v-btn>
           </td>
         </tr>
       </tbody>
