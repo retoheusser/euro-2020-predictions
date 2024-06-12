@@ -86,6 +86,10 @@
         {
           swapResultBelowProbabilitySpan: 0,
           customStrategyDiff2Ratio: 0
+        },
+        {
+          swapResultBelowProbabilitySpan: 0,
+          customStrategyDiff2Ratio: 0
         }]
       }
     },
@@ -95,29 +99,46 @@
           name: 'Reto\'s custom',
           predicate: [1,0] as BetPredicateTuple,
           custom: true,
+          predictDraws: false,
+          betFn: getCustomBet
+        },{
+          name: 'Reto\'s custom with 1:1',
+          predicate: [1,0] as BetPredicateTuple,
+          custom: true,
+          predictDraws: true,
           betFn: getCustomBet
         },{
           name: 'All 1-0',
           predicate: [1,0] as BetPredicateTuple,
           custom: false,
+          predictDraws: false,
           betFn: getBet
         },
         {
           name: 'All 2-1',
           predicate: [2,1] as BetPredicateTuple,
           custom: false,
+          predictDraws: false,
           betFn: getBet
         },
         {
           name: 'All 2-0',
           predicate: [2,0] as BetPredicateTuple,
           custom: false,
+          predictDraws: false,
           betFn: getBet
         }].map((strategy, index) => ({
           ...strategy,
           dataset: this.dataset.map((matchResult) => ({
             ...matchResult,
-            bet: strategy.betFn(this.dataset, matchResult, strategy.predicate, this.parameters[index].swapResultBelowProbabilitySpan, this.parameters[index].customStrategyDiff2Ratio)
+            bet: strategy.betFn({
+              dataset: this.dataset,
+              matchResult,
+              predicate: strategy.predicate,
+              swapThreshold: this.parameters[index].swapResultBelowProbabilitySpan,
+              customStrategyDiff2Ratio: this.parameters[index].customStrategyDiff2Ratio,
+              predictDraws: strategy.predictDraws
+            })
           }))
         }))
       },
@@ -141,12 +162,13 @@
       }
     },
     methods: {
-      applyStrategy({ custom, predicate }: Strategy, swapThreshold: number, customStrategyDiff2Ratio: number): void {
+      applyStrategy({ custom, predicate, predictDraws }: Strategy, swapThreshold: number, customStrategyDiff2Ratio: number): void {
         const predictionStrategy: PredictionStrategy = {
           custom,
           predicate,
           swapThreshold,
-          customStrategyDiff2Ratio
+          customStrategyDiff2Ratio,
+          predictDraws
         }
         this.$emit('apply', predictionStrategy)
       }

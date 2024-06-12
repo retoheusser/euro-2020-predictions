@@ -20,21 +20,39 @@ export function calculatePoints(matchResultWithBet: MatchResultWithBet): number 
   return points
 }
 
-export function getBet(dataset: MatchResult[] | MatchWithOdds[], matchResult: Partial<MatchResult>, predicate: BetPredicateTuple, swapThreshold: number, customStrategyDiff2Ratio = 0): Bet {
+export function getBet({
+  dataset, matchResult, predicate, swapThreshold, customStrategyDiff2Ratio = 0, predictDraws = false
+}: {
+  dataset: MatchResult[] | MatchWithOdds[],
+  matchResult: Partial<MatchResult>,
+  predicate: BetPredicateTuple,
+  swapThreshold: number,
+  customStrategyDiff2Ratio?: number,
+  predictDraws?: boolean
+}): Bet {
   const [homeOdd, , awayOdd] = matchResult.odds as number[]
   const condition = homeOdd <= awayOdd
   const bet = {
     home: condition ? predicate[0] : predicate[1],
     away: condition ? predicate[1] : predicate[0]
   }
-  
-  return matchResult.probabilitySpan as number > swapThreshold ? bet : {
+  return matchResult.probabilitySpan as number > swapThreshold ? bet : (predictDraws ? { home: 1, away: 1 } : {
     home: bet.away,
     away: bet.home
-  }
+  })
 }
 
-export function getCustomBet(dataset: MatchResult[], matchResult: Partial<MatchResult>, predicate: BetPredicateTuple, swapThreshold: number, customStrategyDiff2Ratio = 0, localDataset?: MatchWithOdds[]): Bet {
+export function getCustomBet({
+  dataset, matchResult, predicate, swapThreshold, customStrategyDiff2Ratio = 0, localDataset, predictDraws = false
+}: {
+  dataset: MatchResult[],
+  matchResult: Partial<MatchResult>,
+  predicate: BetPredicateTuple,
+  swapThreshold: number,
+  customStrategyDiff2Ratio?: number,
+  localDataset?: MatchWithOdds[],
+  predictDraws?: boolean
+}): Bet {
   const orderByProbabilitySpan = _orderBy<MatchResult | MatchWithOdds>(({ probabilitySpan }) => probabilitySpan, 'desc')
   const countByDiff = _countBy('diff')
   const datasetLength = (localDataset || dataset).length
@@ -56,8 +74,8 @@ export function getCustomBet(dataset: MatchResult[], matchResult: Partial<MatchR
   
   // mix in some 2-0 results according to their share of all results
   const expectedDiff = matchResult.probabilitySpan as number >= thresholdProbabilitySpan ? 2 : 1
-  predicate = expectedDiff === 2 ? [2,0]  : (matchResult.round === 2 ? [2,1] : [1,0])
-  return getBet(dataset, matchResult, predicate, swapThreshold)
+  predicate = expectedDiff === 2 ? [2,0] : (matchResult.round === 2 ? [2,1] : [1,0])
+  return getBet({dataset, matchResult, predicate, swapThreshold, predictDraws: predictDraws && matchResult.round === 2})
 }
 
 export function getProbabilitySpan(odds: number[]): number {
@@ -65,16 +83,49 @@ export function getProbabilitySpan(odds: number[]): number {
   return sortedProbabilities[1] - sortedProbabilities[0]
 }
 
-export function predict(odds: number[], round: number, predicate: BetPredicateTuple, swapThreshold: number, customStrategyDiff2Ratio: number, custom: boolean, dataset: MatchResult[], localDataset: MatchWithOdds[]): string {
-  const { home, away } = custom ? getCustomBet(dataset, {
-    odds,
-    probabilitySpan: getProbabilitySpan(odds),
-    round
-  }, predicate, swapThreshold, customStrategyDiff2Ratio, localDataset) : getBet([], {
-    odds,
-    probabilitySpan: getProbabilitySpan(odds),
-    round
-  }, predicate, swapThreshold)
+export function predict({
+  odds,
+  round,
+  predicate,
+  swapThreshold,
+  customStrategyDiff2Ratio,
+  custom,
+  dataset,
+  localDataset,
+  predictDraws
+}: {
+  odds: number[],
+  round: number,
+  predicate: BetPredicateTuple,
+  swapThreshold: number,
+  customStrategyDiff2Ratio: number,
+  custom: boolean,
+  dataset: MatchResult[],
+  localDataset: MatchWithOdds[],
+  predictDraws: boolean
+}): string {
+  const { home, away } = custom ? getCustomBet({
+    dataset, 
+    matchResult: {
+      odds,
+      probabilitySpan: getProbabilitySpan(odds),
+      round
+    },
+    predicate,
+    swapThreshold,
+    customStrategyDiff2Ratio,
+    localDataset,
+    predictDraws
+  }) : getBet({
+    dataset: [],
+    matchResult: {
+      odds,
+      probabilitySpan: getProbabilitySpan(odds),
+      round
+    },
+    predicate,
+    swapThreshold
+  })
   
   return `${home}-${away}`
 }

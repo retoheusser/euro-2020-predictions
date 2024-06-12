@@ -86,7 +86,17 @@
       predictions(): MatchPrediction[] {
         return this.matchesWithProbabilitySpan.map((match, index, array) => ({
           ...match,
-          prediction: predict(match.odds, match.round as number, this.strategy.predicate, this.strategy.swapThreshold, this.strategy.customStrategyDiff2Ratio, this.strategy.custom, this.dataset, array)
+          prediction: predict({
+            odds: match.odds,
+            round: match.round as number,
+            predicate: this.strategy.predicate,
+            swapThreshold: this.strategy.swapThreshold,
+            customStrategyDiff2Ratio: this.strategy.customStrategyDiff2Ratio,
+            custom: this.strategy.custom,
+            dataset: this.dataset,
+            localDataset: array,
+            predictDraws: this.strategy.predictDraws
+          })
         }))
       }
     }

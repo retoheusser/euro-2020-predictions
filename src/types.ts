@@ -34,6 +34,7 @@ export interface Strategy {
   dataset: MatchResultWithBet[];
   predicate: BetPredicateTuple;
   custom: boolean;
+  predictDraws: boolean;
   betFn: (...args: any) => Bet
 }
 
@@ -42,6 +43,7 @@ export interface PredictionStrategy {
   custom: boolean;
   swapThreshold: number;
   customStrategyDiff2Ratio: number;
+  predictDraws: boolean;
 }
 
 export interface Bet {
