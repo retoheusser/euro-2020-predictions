@@ -26,7 +26,7 @@ export function getBet({
   dataset: MatchResult[] | MatchWithOdds[],
   matchResult: Partial<MatchResult>,
   predicate: BetPredicateTuple,
-  swapThreshold: number,
+  swapThreshold: number[],
   customStrategyDiff2Ratio?: number,
   predictDraws?: boolean
 }): Bet {
@@ -36,10 +36,14 @@ export function getBet({
     home: condition ? predicate[0] : predicate[1],
     away: condition ? predicate[1] : predicate[0]
   }
-  return matchResult.probabilitySpan as number > swapThreshold ? bet : (predictDraws ? { home: 1, away: 1 } : {
+  const shouldSwapResult = (matchResult.round === 1 && matchResult.probabilitySpan as number < swapThreshold[0])
+    || (matchResult.round === 2 && matchResult.probabilitySpan as number < swapThreshold[1])
+    || (matchResult.round === 3 && matchResult.probabilitySpan as number < swapThreshold[2])
+
+  return shouldSwapResult ? (predictDraws ? { home: 1, away: 1 } : {
     home: bet.away,
     away: bet.home
-  })
+  }) : bet
 }
 
 export function getCustomBet({
@@ -48,7 +52,7 @@ export function getCustomBet({
   dataset: MatchResult[],
   matchResult: Partial<MatchResult>,
   predicate: BetPredicateTuple,
-  swapThreshold: number,
+  swapThreshold: number[],
   customStrategyDiff2Ratio?: number,
   localDataset?: MatchWithOdds[],
   predictDraws?: boolean
@@ -97,7 +101,7 @@ export function predict({
   odds: number[],
   round: number,
   predicate: BetPredicateTuple,
-  swapThreshold: number,
+  swapThreshold: number[],
   customStrategyDiff2Ratio: number,
   custom: boolean,
   dataset: MatchResult[],

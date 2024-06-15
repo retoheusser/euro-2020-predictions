@@ -121,7 +121,7 @@
       strategy: {
         predicate: [1, 0],
         custom: false,
-        swapThreshold: 0
+        swapThreshold: [0, 0, 0]
       } as PredictionStrategy,
       probabilitySpanFilter: [0,1]
     }),

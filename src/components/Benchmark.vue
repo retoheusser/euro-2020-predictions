@@ -7,7 +7,13 @@
             Strategy
           </th>
           <th class="text-left">
-            Swap result below probability span
+            Swap result below probability span round 1
+          </th>
+          <th class="text-left">
+            Swap result below probability span round 2
+          </th>
+          <th class="text-left">
+            Swap result below probability span round 3
           </th>
           <th class="text-left">
             Diff 2 ratio (custom strategy)
@@ -30,7 +36,13 @@
         >
           <td>{{ strategy.name }}</td>
           <td>
-            <v-text-field type="number" min="0" max="1" step="0.01" :value="parameters[index].swapResultBelowProbabilitySpan" @input="(value) => parameters[index].swapResultBelowProbabilitySpan = Number(value)"/>
+            <v-text-field type="number" min="0" max="1" step="0.01" :value="parameters[index].swapResultBelowProbabilitySpan[0]" @input="(value) => swapResultBetweenProbabilitySpanInput(Number(value), index, 0)"/>
+          </td>
+          <td>
+            <v-text-field type="number" min="0" max="1" step="0.01" :value="parameters[index].swapResultBelowProbabilitySpan[1]" @input="(value) => swapResultBetweenProbabilitySpanInput(Number(value), index, 1)"/>
+          </td>
+          <td>
+            <v-text-field type="number" min="0" max="1" step="0.01" :value="parameters[index].swapResultBelowProbabilitySpan[2]" @input="(value) => swapResultBetweenProbabilitySpanInput(Number(value), index, 2)"/>
           </td>
           <td>
             <v-text-field type="number" min="0" max="1" step="0.01" :value="parameters[index].customStrategyDiff2Ratio" @input="(value) => parameters[index].customStrategyDiff2Ratio = Number(value)" />
@@ -72,23 +84,23 @@
     data() {
       return {
         parameters: [{
-          swapResultBelowProbabilitySpan: 0,
+          swapResultBelowProbabilitySpan: [0, 0, 0],
           customStrategyDiff2Ratio: 0
         },
         {
-          swapResultBelowProbabilitySpan: 0,
+          swapResultBelowProbabilitySpan: [0, 0, 0],
           customStrategyDiff2Ratio: 0
         },
         {
-          swapResultBelowProbabilitySpan: 0,
+          swapResultBelowProbabilitySpan: [0, 0, 0],
           customStrategyDiff2Ratio: 0
         },
         {
-          swapResultBelowProbabilitySpan: 0,
+          swapResultBelowProbabilitySpan: [0, 0, 0],
           customStrategyDiff2Ratio: 0
         },
         {
-          swapResultBelowProbabilitySpan: 0,
+          swapResultBelowProbabilitySpan: [0, 0, 0],
           customStrategyDiff2Ratio: 0
         }]
       }
@@ -162,7 +174,7 @@
       }
     },
     methods: {
-      applyStrategy({ custom, predicate, predictDraws }: Strategy, swapThreshold: number, customStrategyDiff2Ratio: number): void {
+      applyStrategy({ custom, predicate, predictDraws }: Strategy, swapThreshold: number[], customStrategyDiff2Ratio: number): void {
         const predictionStrategy: PredictionStrategy = {
           custom,
           predicate,
@@ -171,6 +183,9 @@
           predictDraws
         }
         this.$emit('apply', predictionStrategy)
+      },
+      swapResultBetweenProbabilitySpanInput(value: number, strategy: number, index: number) {
+        Vue.set(this.parameters[strategy].swapResultBelowProbabilitySpan, index, value)
       }
     }
   })

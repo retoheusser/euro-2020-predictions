@@ -41,7 +41,7 @@ export interface Strategy {
 export interface PredictionStrategy {
   predicate: BetPredicateTuple;
   custom: boolean;
-  swapThreshold: number;
+  swapThreshold: number[];
   customStrategyDiff2Ratio: number;
   predictDraws: boolean;
 }

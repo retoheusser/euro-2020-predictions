@@ -39,7 +39,7 @@
             >
               <span>
                 {{ match.probabilitySpan.toFixed(2) }}
-                <v-icon v-if="match.probabilitySpan < strategy.swapThreshold">mdi-arrow-down</v-icon>
+                <v-icon v-if="(match.probabilitySpan < strategy.swapThreshold[0] && match.round === 1) || (match.probabilitySpan < strategy.swapThreshold[1] && match.round === 2) || (match.probabilitySpan < strategy.swapThreshold[2] && match.round === 3)">mdi-arrow-down</v-icon>
               </span>
             </v-progress-linear>
           </td>
