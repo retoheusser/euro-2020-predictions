@@ -22,6 +22,10 @@
             <v-checkbox v-model="roundFilter" label="Group Round 3" :value="3" class="mr-8" />
             <v-checkbox v-model="roundFilter" label="KO" :value="null" class="mr-8" />
           </v-input>
+          <v-input label="Odds">
+            <v-checkbox v-model="oddsFilter" label="Odd is correct" value="correct" class="mr-8" />
+            <v-checkbox v-model="oddsFilter" label="Odd is not correct" value="incorrect" class="mr-8" />
+          </v-input>
           <v-range-slider v-model="probabilitySpanFilter" label="Probability span" :min="0" :max="1" :step="0.01">
             <template #append>
               <div class="text-no-wrap">{{ probabilitySpanFilter[0] }} - {{ probabilitySpanFilter[1] }}</div>
@@ -111,6 +115,7 @@
       yearFilter: [2020, 2016, 2012, 2008, 2004],
       stageFilter: ['group', 'ko'],
       roundFilter: [null, 1, 2, 3],
+      oddsFilter: ['correct', 'incorrect'],
       excludeDraws: false,
       excludeUncommonResults: false,
       aggregation: 'countBy',
@@ -137,6 +142,8 @@
           return this.excludeUncommonResults ? (['1-0', '2-0', '2-1'].includes(result.normalizedResult)): true
         }).filter(result => {
           return result.probabilitySpan > this.probabilitySpanFilter[0] && result.probabilitySpan < this.probabilitySpanFilter[1]
+        }).filter(result => {
+          return (result.oddIsCorrect && this.oddsFilter.includes('correct')) || (!result.oddIsCorrect && this.oddsFilter.includes('incorrect'))
         })
       },
       countBy(): CountResult[] {
