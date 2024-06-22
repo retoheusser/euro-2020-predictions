@@ -6,6 +6,7 @@
         <v-expansion-panel-content>
           <div class="text-caption">Match results taken into account: {{ filteredResults.length }}</div>
           <v-input label="Year">
+            <v-checkbox v-model="yearFilter" label="2024" :value="2024" class="mr-8" />
             <v-checkbox v-model="yearFilter" label="2020" :value="2020" class="mr-8" />
             <v-checkbox v-model="yearFilter" label="2016" :value="2016" class="mr-8" />
             <v-checkbox v-model="yearFilter" label="2012" :value="2012" class="mr-8" />
