@@ -226,64 +226,64 @@
     {
         "match": "France – Poland",
         "odds": [
-            1.31,
-            5.66,
-            10.27
+            1.24,
+            6.48,
+            13.47
         ]
     },
     {
         "match": "Netherlands – Austria",
         "odds": [
-            2.24,
-            3.15,
-            3.66
+            2.02,
+            3.34,
+            4.13
         ]
     },
     {
         "match": "Denmark – Serbia",
         "odds": [
-            2.2,
-            3.56,
-            3.29
+            2.4,
+            3.15,
+            3.31
         ]
     },
     {
         "match": "England – Slovenia",
         "odds": [
-            1.38,
-            4.73,
-            9.43
+            1.31,
+            5.38,
+            11.54
         ]
     },
     {
         "match": "Slovakia – Romania",
         "odds": [
-            3.23,
-            2.1,
-            3.88
+            3.25,
+            2.06,
+            3.97
         ]
     },
     {
         "match": "Ukraine – Belgium",
         "odds": [
-            4.89,
-            4.13,
-            1.68
+            5.02,
+            4.06,
+            1.69
         ]
     },
     {
         "match": "Czech Republic – Turkey",
         "odds": [
-            2.48,
-            3.42,
-            2.88
+            2.67,
+            3.27,
+            2.79
         ]
     },
     {
         "match": "Georgia – Portugal",
         "odds": [
-            7.39,
-            5.29,
+            7.61,
+            5.25,
             1.4
         ]
     }
