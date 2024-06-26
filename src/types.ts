@@ -35,6 +35,7 @@ export interface Strategy {
   predicate: BetPredicateTuple;
   custom: boolean;
   predictDraws: boolean;
+  goForMostProbableOutcomeAgainstOdds: boolean;
   betFn: (...args: any) => Bet
 }
 
@@ -44,6 +45,7 @@ export interface PredictionStrategy {
   swapThreshold: number[];
   customStrategyDiff2Ratio: number;
   predictDraws: boolean;
+  goForMostProbableOutcomeAgainstOdds: boolean;
 }
 
 export interface Bet {

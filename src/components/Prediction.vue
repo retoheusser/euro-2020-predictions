@@ -95,7 +95,8 @@
             custom: this.strategy.custom,
             dataset: this.dataset,
             localDataset: array,
-            predictDraws: this.strategy.predictDraws
+            predictDraws: this.strategy.predictDraws,
+            goForMostProbableOutcomeAgainstOdds: this.strategy.goForMostProbableOutcomeAgainstOdds
           })
         }))
       }

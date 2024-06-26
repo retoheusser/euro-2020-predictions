@@ -98,6 +98,9 @@
         {
           swapResultBelowProbabilitySpan: [0, 0, 0],
           customStrategyDiff2Ratio: 0
+        },{
+          swapResultBelowProbabilitySpan: [0, 0, 0],
+          customStrategyDiff2Ratio: 0
         },
         {
           swapResultBelowProbabilitySpan: [0, 0, 0],
@@ -112,18 +115,30 @@
           predicate: [1,0] as BetPredicateTuple,
           custom: true,
           predictDraws: false,
+          goForMostProbableOutcomeAgainstOdds: false,
           betFn: getCustomBet
         },{
           name: 'Reto\'s custom with 1:1',
           predicate: [1,0] as BetPredicateTuple,
           custom: true,
           predictDraws: true,
+          goForMostProbableOutcomeAgainstOdds: false,
           betFn: getCustomBet
-        },{
+        },
+        {
+          name: 'Reto\'s custom with most probable outcome against odds',
+          predicate: [1,0] as BetPredicateTuple,
+          custom: true,
+          predictDraws: false,
+          goForMostProbableOutcomeAgainstOdds: true,
+          betFn: getCustomBet
+        },
+        {
           name: 'All 1-0',
           predicate: [1,0] as BetPredicateTuple,
           custom: false,
           predictDraws: false,
+          goForMostProbableOutcomeAgainstOdds: false,
           betFn: getBet
         },
         {
@@ -131,6 +146,7 @@
           predicate: [2,1] as BetPredicateTuple,
           custom: false,
           predictDraws: false,
+          goForMostProbableOutcomeAgainstOdds: false,
           betFn: getBet
         },
         {
@@ -138,6 +154,7 @@
           predicate: [2,0] as BetPredicateTuple,
           custom: false,
           predictDraws: false,
+          goForMostProbableOutcomeAgainstOdds: false,
           betFn: getBet
         }].map((strategy, index) => ({
           ...strategy,
@@ -149,7 +166,8 @@
               predicate: strategy.predicate,
               swapThreshold: this.parameters[index].swapResultBelowProbabilitySpan,
               customStrategyDiff2Ratio: this.parameters[index].customStrategyDiff2Ratio,
-              predictDraws: strategy.predictDraws
+              predictDraws: strategy.predictDraws,
+              goForMostProbableOutcomeAgainstOdds: strategy.goForMostProbableOutcomeAgainstOdds
             })
           }))
         }))
@@ -174,13 +192,14 @@
       }
     },
     methods: {
-      applyStrategy({ custom, predicate, predictDraws }: Strategy, swapThreshold: number[], customStrategyDiff2Ratio: number): void {
+      applyStrategy({ custom, predicate, predictDraws, goForMostProbableOutcomeAgainstOdds }: Strategy, swapThreshold: number[], customStrategyDiff2Ratio: number): void {
         const predictionStrategy: PredictionStrategy = {
           custom,
           predicate,
           swapThreshold,
           customStrategyDiff2Ratio,
-          predictDraws
+          predictDraws,
+          goForMostProbableOutcomeAgainstOdds
         }
         this.$emit('apply', predictionStrategy)
       },
