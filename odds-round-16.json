@@ -1,66 +1,34 @@
 [
     {
-        "match": "Switzerland – Italy",
+        "match": "Spain – Germany",
         "odds": [
-            3.43,
-            2.95,
+            2.77,
+            3.15,
+            2.85
+        ]
+    },
+    {
+        "match": "Portugal – France",
+        "odds": [
+            3.46,
+            3,
             2.45
         ]
     },
     {
-        "match": "Germany – Denmark",
+        "match": "England – Switzerland",
         "odds": [
-            1.62,
-            3.85,
-            6.09
+            2.26,
+            2.99,
+            3.9
         ]
     },
     {
-        "match": "England – Slovakia",
+        "match": "Netherlands – Turkey",
         "odds": [
-            1.42,
-            4.29,
-            9.65
-        ]
-    },
-    {
-        "match": "Spain – Georgia",
-        "odds": [
-            1.2,
-            6.86,
-            16.2
-        ]
-    },
-    {
-        "match": "France – Belgium",
-        "odds": [
-            1.92,
-            3.22,
-            4.83
-        ]
-    },
-    {
-        "match": "Portugal – Slovenia",
-        "odds": [
-            1.41,
-            4.65,
-            8.64
-        ]
-    },
-    {
-        "match": "Romania – Netherlands",
-        "odds": [
-            7.97,
-            4.55,
-            1.45
-        ]
-    },
-    {
-        "match": "Austria – Turkey",
-        "odds": [
-            1.93,
-            3.45,
-            4.48
+            1.61,
+            4.17,
+            5.77
         ]
     }
 ]
