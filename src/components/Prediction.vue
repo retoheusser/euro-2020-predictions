@@ -56,7 +56,7 @@
   import Vue, { PropType } from 'vue'
   import { getProbabilitySpan, predict } from '../calc/calculations'
   import { PredictionStrategy, MatchResult, MatchWithOdds, MatchPrediction } from '../types'
-  import odds from '../../odds-round-16.json'
+  import odds from '../../odds-group-stage.json'
 
   export default Vue.extend({
     name: 'Prediction',
