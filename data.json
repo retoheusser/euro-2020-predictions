@@ -4572,11 +4572,11 @@
     "oddIsCorrect": false
   },
   {
-    "home": 4,
-    "away": 3,
-    "total": 7,
-    "diff": 1,
-    "normalizedResult": "4-3",
+    "home": 1,
+    "away": 1,
+    "total": 2,
+    "diff": 0,
+    "normalizedResult": "1-1",
     "swapped": false,
     "stage": "ko",
     "round": null,
@@ -4586,7 +4586,7 @@
       3.04
     ],
     "probabilitySpan": 0.03735299787931362,
-    "oddIsCorrect": true,
+    "oddIsCorrect": false,
     "year": 2022
   },
   {
@@ -4680,11 +4680,11 @@
     "year": 2022
   },
   {
-    "home": 2,
-    "away": 3,
-    "total": 5,
-    "diff": 1,
-    "normalizedResult": "3-2",
+    "home": 1,
+    "away": 1,
+    "total": 2,
+    "diff": 0,
+    "normalizedResult": "1-1",
     "swapped": true,
     "stage": "ko",
     "round": null,
@@ -4694,15 +4694,15 @@
       2.34
     ],
     "probabilitySpan": 0.1858045336306206,
-    "oddIsCorrect": true,
+    "oddIsCorrect": false,
     "year": 2022
   },
   {
-    "home": 2,
+    "home": 1,
     "away": 1,
-    "total": 3,
-    "diff": 1,
-    "normalizedResult": "2-1",
+    "total": 2,
+    "diff": 0,
+    "normalizedResult": "1-1",
     "swapped": false,
     "stage": "ko",
     "round": null,
@@ -4734,11 +4734,11 @@
     "year": 2022
   },
   {
-    "home": 1,
+    "home": 0,
     "away": 0,
-    "total": 1,
-    "diff": 1,
-    "normalizedResult": "1-0",
+    "total": 0,
+    "diff": 0,
+    "normalizedResult": "0-0",
     "swapped": false,
     "stage": "ko",
     "round": null,
@@ -5722,5 +5722,1157 @@
     "probabilitySpan": 0.16731855714906563,
     "oddIsCorrect": true,
     "year": 2022
+  },
+  {
+    "home": 4,
+    "away": 2,
+    "total": 6,
+    "diff": 2,
+    "normalizedResult": "4-2",
+    "swapped": false,
+    "stage": "ko",
+    "round": null,
+    "odds": [
+      2.14,
+      3.05,
+      4.88
+    ],
+    "probabilitySpan": 0.26237168683928297,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 2,
+    "away": 0,
+    "total": 2,
+    "diff": 2,
+    "normalizedResult": "2-0",
+    "swapped": false,
+    "stage": "ko",
+    "round": null,
+    "odds": [
+      2.25,
+      3.85,
+      3.42
+    ],
+    "probabilitySpan": 0.15204678362573099,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 2,
+    "away": 1,
+    "total": 3,
+    "diff": 1,
+    "normalizedResult": "2-1",
+    "swapped": false,
+    "stage": "ko",
+    "round": null,
+    "odds": [
+      4.28,
+      3,
+      2.3
+    ],
+    "probabilitySpan": 0.2011377488825681,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 1,
+    "away": 0,
+    "total": 1,
+    "diff": 1,
+    "normalizedResult": "1-0",
+    "swapped": false,
+    "stage": "ko",
+    "round": null,
+    "odds": [
+      2.6,
+      3.25,
+      3.1
+    ],
+    "probabilitySpan": 0.06203473945409427,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 1,
+    "away": 1,
+    "total": 2,
+    "diff": 0,
+    "normalizedResult": "1-1",
+    "swapped": true,
+    "stage": "ko",
+    "round": null,
+    "odds": [
+      4.12,
+      3.2,
+      2.21
+    ],
+    "probabilitySpan": 0.20977024118086368,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 0,
+    "away": 2,
+    "total": 2,
+    "diff": 2,
+    "normalizedResult": "2-0",
+    "swapped": true,
+    "stage": "ko",
+    "round": null,
+    "odds": [
+      5.6,
+      3.4,
+      1.86
+    ],
+    "probabilitySpan": 0.3590629800307219,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 1,
+    "away": 2,
+    "total": 3,
+    "diff": 1,
+    "normalizedResult": "2-1",
+    "swapped": true,
+    "stage": "ko",
+    "round": null,
+    "odds": [
+      2.12,
+      3.5,
+      4.04
+    ],
+    "probabilitySpan": 0.2241733607322996,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 0,
+    "away": 2,
+    "total": 2,
+    "diff": 2,
+    "normalizedResult": "2-0",
+    "swapped": true,
+    "stage": "ko",
+    "round": null,
+    "odds": [
+      5.25,
+      3.1,
+      2.03
+    ],
+    "probabilitySpan": 0.30213464696223324,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 1,
+    "away": 1,
+    "total": 2,
+    "diff": 0,
+    "normalizedResult": "1-1",
+    "swapped": true,
+    "stage": "ko",
+    "round": null,
+    "odds": [
+      4.25,
+      3.1,
+      2.15
+    ],
+    "probabilitySpan": 0.22982216142270862,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 1,
+    "away": 0,
+    "total": 1,
+    "diff": 1,
+    "normalizedResult": "1-0",
+    "swapped": false,
+    "stage": "ko",
+    "round": null,
+    "odds": [
+      3.4,
+      3,
+      2.54
+    ],
+    "probabilitySpan": 0.09958314034275123,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 3,
+    "away": 2,
+    "total": 5,
+    "diff": 1,
+    "normalizedResult": "3-2",
+    "swapped": false,
+    "stage": "ko",
+    "round": null,
+    "odds": [
+      1.43,
+      4.8,
+      10
+    ],
+    "probabilitySpan": 0.5993006993006994,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 2,
+    "away": 0,
+    "total": 2,
+    "diff": 2,
+    "normalizedResult": "2-0",
+    "swapped": false,
+    "stage": "ko",
+    "round": null,
+    "odds": [
+      1.5,
+      4.45,
+      7.9
+    ],
+    "probabilitySpan": 0.540084388185654,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 1,
+    "away": 1,
+    "total": 2,
+    "diff": 0,
+    "normalizedResult": "1-1",
+    "swapped": false,
+    "stage": "ko",
+    "round": null,
+    "odds": [
+      2.02,
+      3.3,
+      5.2
+    ],
+    "probabilitySpan": 0.30274181264280275,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 1,
+    "away": 1,
+    "total": 0,
+    "diff": 0,
+    "normalizedResult": "1-1",
+    "swapped": true,
+    "stage": "ko",
+    "round": null,
+    "odds": [
+      1.59,
+      4.2,
+      6.95
+    ],
+    "probabilitySpan": 0.48504592552373194,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 2,
+    "away": 1,
+    "total": 3,
+    "diff": 1,
+    "normalizedResult": "2-1",
+    "swapped": false,
+    "stage": "ko",
+    "round": null,
+    "odds": [
+      3.2,
+      3,
+      2.75
+    ],
+    "probabilitySpan": 0.051136363636363646,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 4,
+    "away": 3,
+    "total": 7,
+    "diff": 1,
+    "normalizedResult": "4-3",
+    "swapped": false,
+    "stage": "ko",
+    "round": null,
+    "odds": [
+      2.45,
+      3.1,
+      3.45
+    ],
+    "probabilitySpan": 0.11830819284235428,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 0,
+    "away": 1,
+    "total": 1,
+    "diff": 1,
+    "normalizedResult": "1-0",
+    "swapped": true,
+    "stage": "group",
+    "round": 3,
+    "odds": [
+      2.67,
+      2.85,
+      3.8
+    ],
+    "probabilitySpan": 0.11137394046915045,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 1,
+    "away": 2,
+    "total": 3,
+    "diff": 1,
+    "normalizedResult": "2-1",
+    "swapped": true,
+    "stage": "group",
+    "round": 3,
+    "odds": [
+      4.72,
+      3.85,
+      1.87
+    ],
+    "probabilitySpan": 0.32289495150910896,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 0,
+    "away": 1,
+    "total": 1,
+    "diff": 1,
+    "normalizedResult": "1-0",
+    "swapped": true,
+    "stage": "group",
+    "round": 3,
+    "odds": [
+      5.65,
+      3.75,
+      1.8
+    ],
+    "probabilitySpan": 0.3785644051130777,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 0,
+    "away": 1,
+    "total": 1,
+    "diff": 1,
+    "normalizedResult": "1-0",
+    "swapped": true,
+    "stage": "group",
+    "round": 3,
+    "odds": [
+      3,
+      3.2,
+      3.06
+    ],
+    "probabilitySpan": 0.006535947712418277,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 0,
+    "away": 2,
+    "total": 2,
+    "diff": 2,
+    "normalizedResult": "2-0",
+    "swapped": true,
+    "stage": "group",
+    "round": 3,
+    "odds": [
+      8.5,
+      4.75,
+      1.49
+    ],
+    "probabilitySpan": 0.553493880773786,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 2,
+    "away": 2,
+    "total": 4,
+    "diff": 0,
+    "normalizedResult": "2-2",
+    "swapped": false,
+    "stage": "group",
+    "round": 3,
+    "odds": [
+      1.65,
+      3.8,
+      8
+    ],
+    "probabilitySpan": 0.4810606060606061,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 2,
+    "away": 0,
+    "total": 2,
+    "diff": 2,
+    "normalizedResult": "2-0",
+    "swapped": false,
+    "stage": "group",
+    "round": 3,
+    "odds": [
+      23,
+      8.5,
+      1.18
+    ],
+    "probabilitySpan": 0.803979366249079,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 0,
+    "away": 3,
+    "total": 3,
+    "diff": 3,
+    "normalizedResult": "3-0",
+    "swapped": true,
+    "stage": "group",
+    "round": 3,
+    "odds": [
+      2.22,
+      3.45,
+      3.6
+    ],
+    "probabilitySpan": 0.1726726726726726,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 1,
+    "away": 2,
+    "total": 3,
+    "diff": 1,
+    "normalizedResult": "2-1",
+    "swapped": true,
+    "stage": "group",
+    "round": 3,
+    "odds": [
+      6.6,
+      5.25,
+      1.5
+    ],
+    "probabilitySpan": 0.5151515151515151,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 1,
+    "away": 2,
+    "total": 3,
+    "diff": 1,
+    "normalizedResult": "2-1",
+    "swapped": true,
+    "stage": "group",
+    "round": 3,
+    "odds": [
+      4.88,
+      4,
+      1.85
+    ],
+    "probabilitySpan": 0.3356225077536552,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 0,
+    "away": 2,
+    "total": 2,
+    "diff": 2,
+    "normalizedResult": "2-0",
+    "swapped": true,
+    "stage": "group",
+    "round": 3,
+    "odds": [
+      3.16,
+      3.6,
+      2.5
+    ],
+    "probabilitySpan": 0.08354430379746841,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 0,
+    "away": 0,
+    "total": 0,
+    "diff": 0,
+    "normalizedResult": "0-0",
+    "swapped": false,
+    "stage": "group",
+    "round": 3,
+    "odds": [
+      6.45,
+      2.8,
+      2.09
+    ],
+    "probabilitySpan": 0.3234301398316087,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 1,
+    "away": 1,
+    "total": 2,
+    "diff": 0,
+    "normalizedResult": "1-1",
+    "swapped": false,
+    "stage": "group",
+    "round": 3,
+    "odds": [
+      7,
+      4.1,
+      1.61
+    ],
+    "probabilitySpan": 0.47826086956521735,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 2,
+    "away": 2,
+    "total": 4,
+    "diff": 0,
+    "normalizedResult": "2-2",
+    "swapped": false,
+    "stage": "group",
+    "round": 3,
+    "odds": [
+      1.41,
+      5.1,
+      12.5
+    ],
+    "probabilitySpan": 0.6292198581560284,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 2,
+    "away": 1,
+    "total": 3,
+    "diff": 1,
+    "normalizedResult": "2-1",
+    "swapped": false,
+    "stage": "group",
+    "round": 3,
+    "odds": [
+      5.95,
+      3.7,
+      1.82
+    ],
+    "probabilitySpan": 0.3813833225597931,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 3,
+    "away": 0,
+    "total": 3,
+    "diff": 3,
+    "normalizedResult": "3-0",
+    "swapped": false,
+    "stage": "group",
+    "round": 3,
+    "odds": [
+      3.06,
+      3.1,
+      2.95
+    ],
+    "probabilitySpan": 0.012185665226542575,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 0,
+    "away": 3,
+    "total": 3,
+    "diff": 3,
+    "normalizedResult": "3-0",
+    "swapped": true,
+    "stage": "group",
+    "round": 2,
+    "odds": [
+      3.6,
+      3.5,
+      2.27
+    ],
+    "probabilitySpan": 0.16275085658345567,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 2,
+    "away": 2,
+    "total": 4,
+    "diff": 0,
+    "normalizedResult": "2-2",
+    "swapped": false,
+    "stage": "group",
+    "round": 2,
+    "odds": [
+      3.52,
+      3,
+      2.7
+    ],
+    "probabilitySpan": 0.08627946127946123,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 6,
+    "away": 1,
+    "total": 7,
+    "diff": 5,
+    "normalizedResult": "6-1",
+    "swapped": false,
+    "stage": "group",
+    "round": 2,
+    "odds": [
+      1.24,
+      6.5,
+      19
+    ],
+    "probabilitySpan": 0.7538200339558574,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 2,
+    "away": 1,
+    "total": 3,
+    "diff": 1,
+    "normalizedResult": "2-1",
+    "swapped": false,
+    "stage": "group",
+    "round": 2,
+    "odds": [
+      1.47,
+      4.75,
+      8.6
+    ],
+    "probabilitySpan": 0.5639930390760955,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 1,
+    "away": 2,
+    "total": 3,
+    "diff": 1,
+    "normalizedResult": "2-1",
+    "swapped": true,
+    "stage": "group",
+    "round": 2,
+    "odds": [
+      5.9,
+      3.9,
+      1.71
+    ],
+    "probabilitySpan": 0.41530379621369806,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 5,
+    "away": 2,
+    "total": 7,
+    "diff": 3,
+    "normalizedResult": "5-2",
+    "swapped": false,
+    "stage": "group",
+    "round": 2,
+    "odds": [
+      1.39,
+      5.25,
+      13
+    ],
+    "probabilitySpan": 0.6425013835085778,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 1,
+    "away": 2,
+    "total": 3,
+    "diff": 1,
+    "normalizedResult": "2-1",
+    "swapped": true,
+    "stage": "group",
+    "round": 2,
+    "odds": [
+      3.02,
+      3.05,
+      3.1
+    ],
+    "probabilitySpan": 0.008545182653279249,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 2,
+    "away": 0,
+    "total": 2,
+    "diff": 2,
+    "normalizedResult": "2-0",
+    "swapped": false,
+    "stage": "group",
+    "round": 2,
+    "odds": [
+      3.13,
+      3.1,
+      2.7
+    ],
+    "probabilitySpan": 0.05088155247899656,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 2,
+    "away": 0,
+    "total": 2,
+    "diff": 2,
+    "normalizedResult": "2-0",
+    "swapped": false,
+    "stage": "group",
+    "round": 2,
+    "odds": [
+      1.2,
+      7.15,
+      21
+    ],
+    "probabilitySpan": 0.7857142857142858,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 0,
+    "away": 3,
+    "total": 3,
+    "diff": 3,
+    "normalizedResult": "3-0",
+    "swapped": true,
+    "stage": "group",
+    "round": 2,
+    "odds": [
+      2.12,
+      3.3,
+      4.4
+    ],
+    "probabilitySpan": 0.24442538593481986,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 1,
+    "away": 0,
+    "total": 1,
+    "diff": 1,
+    "normalizedResult": "1-0",
+    "swapped": false,
+    "stage": "group",
+    "round": 2,
+    "odds": [
+      1.64,
+      3.9,
+      7.5
+    ],
+    "probabilitySpan": 0.4764227642276423,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 1,
+    "away": 1,
+    "total": 2,
+    "diff": 0,
+    "normalizedResult": "1-1",
+    "swapped": false,
+    "stage": "group",
+    "round": 2,
+    "odds": [
+      1.95,
+      3.45,
+      4.65
+    ],
+    "probabilitySpan": 0.2977667493796527,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 0,
+    "away": 1,
+    "total": 1,
+    "diff": 1,
+    "normalizedResult": "1-0",
+    "swapped": true,
+    "stage": "group",
+    "round": 2,
+    "odds": [
+      22,
+      7,
+      1.2
+    ],
+    "probabilitySpan": 0.787878787878788,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 1,
+    "away": 0,
+    "total": 1,
+    "diff": 1,
+    "normalizedResult": "1-0",
+    "swapped": false,
+    "stage": "group",
+    "round": 2,
+    "odds": [
+      1.22,
+      7,
+      20
+    ],
+    "probabilitySpan": 0.769672131147541,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 1,
+    "away": 0,
+    "total": 1,
+    "diff": 1,
+    "normalizedResult": "1-0",
+    "swapped": false,
+    "stage": "group",
+    "round": 2,
+    "odds": [
+      1.7,
+      3.82,
+      6.15
+    ],
+    "probabilitySpan": 0.4256336681013869,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 3,
+    "away": 1,
+    "total": 4,
+    "diff": 2,
+    "normalizedResult": "3-1",
+    "swapped": false,
+    "stage": "group",
+    "round": 2,
+    "odds": [
+      1.99,
+      3.5,
+      4.7
+    ],
+    "probabilitySpan": 0.2897466053672618,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 1,
+    "away": 2,
+    "total": 3,
+    "diff": 1,
+    "normalizedResult": "2-1",
+    "swapped": true,
+    "stage": "group",
+    "round": 1,
+    "odds": [
+      2.54,
+      3.1,
+      3.38
+    ],
+    "probabilitySpan": 0.09784279923589428,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 1,
+    "away": 2,
+    "total": 3,
+    "diff": 1,
+    "normalizedResult": "2-1",
+    "swapped": true,
+    "stage": "group",
+    "round": 1,
+    "odds": [
+      1.9,
+      3.5,
+      5.5
+    ],
+    "probabilitySpan": 0.34449760765550236,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 1,
+    "away": 2,
+    "total": 3,
+    "diff": 1,
+    "normalizedResult": "2-1",
+    "swapped": true,
+    "stage": "group",
+    "round": 1,
+    "odds": [
+      8.7,
+      4.25,
+      1.51
+    ],
+    "probabilitySpan": 0.547309126893507,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 3,
+    "away": 0,
+    "total": 3,
+    "diff": 3,
+    "normalizedResult": "3-0",
+    "swapped": false,
+    "stage": "group",
+    "round": 1,
+    "odds": [
+      1.25,
+      7,
+      19
+    ],
+    "probabilitySpan": 0.7473684210526317,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 1,
+    "away": 0,
+    "total": 1,
+    "diff": 1,
+    "normalizedResult": "1-0",
+    "swapped": false,
+    "stage": "group",
+    "round": 1,
+    "odds": [
+      2.32,
+      3.1,
+      4
+    ],
+    "probabilitySpan": 0.18103448275862072,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 1,
+    "away": 1,
+    "total": 2,
+    "diff": 0,
+    "normalizedResult": "1-1",
+    "swapped": false,
+    "stage": "group",
+    "round": 1,
+    "odds": [
+      1.48,
+      4.64,
+      9
+    ],
+    "probabilitySpan": 0.5645645645645645,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 0,
+    "away": 1,
+    "total": 1,
+    "diff": 1,
+    "normalizedResult": "1-0",
+    "swapped": true,
+    "stage": "group",
+    "round": 1,
+    "odds": [
+      1.53,
+      4.6,
+      7.5
+    ],
+    "probabilitySpan": 0.5202614379084968,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 0,
+    "away": 1,
+    "total": 1,
+    "diff": 1,
+    "normalizedResult": "1-0",
+    "swapped": true,
+    "stage": "group",
+    "round": 1,
+    "odds": [
+      5.5,
+      3.46,
+      1.86
+    ],
+    "probabilitySpan": 0.3558162267839687,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 2,
+    "away": 0,
+    "total": 2,
+    "diff": 2,
+    "normalizedResult": "2-0",
+    "swapped": false,
+    "stage": "group",
+    "round": 1,
+    "odds": [
+      1.71,
+      3.84,
+      6.5
+    ],
+    "probabilitySpan": 0.430949167791273,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 0,
+    "away": 1,
+    "total": 1,
+    "diff": 1,
+    "normalizedResult": "1-0",
+    "swapped": true,
+    "stage": "group",
+    "round": 1,
+    "odds": [
+      3.8,
+      3.17,
+      2.32
+    ],
+    "probabilitySpan": 0.16787658802177863,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 1,
+    "away": 1,
+    "total": 2,
+    "diff": 0,
+    "normalizedResult": "1-1",
+    "swapped": false,
+    "stage": "group",
+    "round": 1,
+    "odds": [
+      1.34,
+      5.65,
+      11.5
+    ],
+    "probabilitySpan": 0.6593121349772875,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 2,
+    "away": 1,
+    "total": 3,
+    "diff": 1,
+    "normalizedResult": "2-1",
+    "swapped": false,
+    "stage": "group",
+    "round": 1,
+    "odds": [
+      1.27,
+      7.5,
+      14
+    ],
+    "probabilitySpan": 0.7159730033745781,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 3,
+    "away": 3,
+    "total": 6,
+    "diff": 0,
+    "normalizedResult": "3-3",
+    "swapped": false,
+    "stage": "group",
+    "round": 1,
+    "odds": [
+      4.6,
+      3.3,
+      2.05
+    ],
+    "probabilitySpan": 0.2704135737009544,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 0,
+    "away": 1,
+    "total": 1,
+    "diff": 1,
+    "normalizedResult": "1-0",
+    "swapped": true,
+    "stage": "group",
+    "round": 1,
+    "odds": [
+      2.22,
+      3.05,
+      4.28
+    ],
+    "probabilitySpan": 0.2168055906373663,
+    "oddIsCorrect": false,
+    "year": 2018
+  },
+  {
+    "home": 0,
+    "away": 1,
+    "total": 1,
+    "diff": 1,
+    "normalizedResult": "1-0",
+    "swapped": true,
+    "stage": "group",
+    "round": 1,
+    "odds": [
+      9,
+      4.24,
+      1.53
+    ],
+    "probabilitySpan": 0.542483660130719,
+    "oddIsCorrect": true,
+    "year": 2018
+  },
+  {
+    "home": 5,
+    "away": 0,
+    "total": 5,
+    "diff": 5,
+    "normalizedResult": "5-0",
+    "swapped": false,
+    "stage": "group",
+    "round": 1,
+    "odds": [
+      1.48,
+      4.45,
+      9.5
+    ],
+    "probabilitySpan": 0.5704125177809388,
+    "oddIsCorrect": true,
+    "year": 2018
   }
 ]
