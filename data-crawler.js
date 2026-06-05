@@ -21,7 +21,7 @@ document.querySelectorAll(".group.flex").forEach((item, index) => {
     }
     const odds = [data[data.length-3], data[data.length-2], data[data.length-1]].map(Number)
     const probabilitySpan = Math.abs(1/odds[0] - 1/odds[2])
-    const year = 2018
+    const year = 2014
     const minOddIndex = odds.indexOf(Math.min(...odds))
     const oddIsCorrect = (minOddIndex === 0 && home > away) || (minOddIndex === 1 && home === away) || (minOddIndex === 2 && away > home)
     all.push({home, away, total, diff, normalizedResult, swapped, stage, round, odds, probabilitySpan, oddIsCorrect, year})
