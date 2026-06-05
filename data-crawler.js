@@ -10,9 +10,19 @@ document.querySelectorAll(".group.flex").forEach((item, index) => {
     const diff = Math.abs(home-away)
     const normalizedResult = [home, away].sort().reverse().join("-")
     const swapped = normalizedResult !== [home, away].join("-")
-    const stage = index > 14 ? "group" : "ko"
-    const round = null
-    const odds = [data[data.length-4], data[data.length-3], data[data.length-2]].map(Number)
+    const stage = index > 15 ? "group" : "ko"
+    let round = null
+    if (index > 39) {
+      round = 1
+    } else if (index > 27) {
+      round = 2
+    } else if (index > 15) {
+      round = 3
+    }
+    const odds = [data[data.length-3], data[data.length-2], data[data.length-1]].map(Number)
     const probabilitySpan = Math.abs(1/odds[0] - 1/odds[2])
- all.push({home, away, total, diff, normalizedResult, swapped, stage, round, odds, probabilitySpan, oddIsCorrect: false})
+    const year = 2024
+    const minOddIndex = odds.indexOf(Math.min(...odds))
+    const oddIsCorrect = (minOddIndex === 0 && home > away) || (minOddIndex === 1 && home === away) || (minOddIndex === 2 && away > home)
+    all.push({home, away, total, diff, normalizedResult, swapped, stage, round, odds, probabilitySpan, oddIsCorrect, year})
 })
