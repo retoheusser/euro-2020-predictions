@@ -16,6 +16,7 @@
             <v-checkbox v-model="yearFilter" label="2022" :value="2022" class="mr-8" />
             <v-checkbox v-model="yearFilter" label="2018" :value="2018" class="mr-8" />
             <v-checkbox v-model="yearFilter" label="2014" :value="2014" class="mr-8" />
+            <v-checkbox v-model="yearFilter" label="2010" :value="2010" class="mr-8" />
           </v-input>
           <v-input label="Stage">
             <v-checkbox v-model="stageFilter" label="Group Stage" value="group" class="mr-8" />
@@ -117,7 +118,7 @@
       expansionPanels: [0,1],
       tab: 0,
       historicResults: historicResults as MatchResult[],
-      yearFilter: [2024, 2020, 2016, 2012, 2008, 2004, 2022, 2018, 2014],
+      yearFilter: [2024, 2020, 2016, 2012, 2008, 2004, 2022, 2018, 2014, 2010],
       stageFilter: ['group', 'ko'],
       roundFilter: [null, 1, 2, 3],
       oddsFilter: ['correct', 'incorrect'],
