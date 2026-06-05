@@ -79,7 +79,7 @@
       matchesWithProbabilitySpan(): MatchWithOdds[] {
         return this.matches.map((match, index) => ({
           ...match,
-          round: Math.ceil((index + 1) / 12),
+          round: Math.ceil((index + 1) / 24),
           probabilitySpan: getProbabilitySpan(match.odds)
         } as MatchWithOdds))
       },
